@@ -1,55 +1,43 @@
 <svg width="500" height="500" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-  <!-- Abstract pattern background for luxury financial site -->
+  <!-- Background grid pattern -->
   <defs>
-    <!-- Gradient definitions -->
-    <linearGradient id="purpleGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#793a99" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#793a99" stop-opacity="0.2"/>
-    </linearGradient>
-    <linearGradient id="pinkGradient" x1="100%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" stop-color="#b62c7f" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#b62c7f" stop-opacity="0.2"/>
-    </linearGradient>
-    <linearGradient id="redGradient" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#ee3f37" stop-opacity="0.05"/>
-      <stop offset="100%" stop-color="#ee3f37" stop-opacity="0.15"/>
-    </linearGradient>
-    
-    <!-- Pattern definition -->
-    <pattern id="luxuryPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-      <circle cx="25" cy="25" r="1" fill="#793a99" opacity="0.2"/>
-      <circle cx="0" cy="0" r="1" fill="#793a99" opacity="0.2"/>
-      <circle cx="0" cy="50" r="1" fill="#793a99" opacity="0.2"/>
-      <circle cx="50" cy="0" r="1" fill="#793a99" opacity="0.2"/>
-      <circle cx="50" cy="50" r="1" fill="#793a99" opacity="0.2"/>
+    <pattern id="smallGrid" width="10" height="10" patternUnits="userSpaceOnUse">
+      <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#ffffff" stroke-opacity="0.05" stroke-width="0.5"/>
+    </pattern>
+    <pattern id="grid" width="50" height="50" patternUnits="userSpaceOnUse">
+      <rect width="50" height="50" fill="url(#smallGrid)"/>
+      <path d="M 50 0 L 0 0 0 50" fill="none" stroke="#ffffff" stroke-opacity="0.1" stroke-width="0.75"/>
     </pattern>
   </defs>
   
-  <!-- Background rectangles with gradients -->
-  <rect width="500" height="500" fill="url(#purpleGradient)"/>
+  <!-- Base rectangle with grid pattern -->
+  <rect width="500" height="500" fill="url(#grid)" opacity="0.4"/>
   
-  <!-- Overlapping shapes -->
-  <circle cx="100" cy="100" r="200" fill="url(#pinkGradient)" opacity="0.3"/>
-  <circle cx="400" cy="400" r="250" fill="url(#redGradient)" opacity="0.3"/>
+  <!-- Abstract shapes -->
+  <circle cx="50" cy="50" r="30" fill="#793a99" opacity="0.1"/>
+  <rect x="400" y="40" width="60" height="60" rx="5" fill="#b62c7f" opacity="0.08"/>
+  <rect x="100" y="400" width="80" height="80" rx="10" fill="#ee3f37" opacity="0.07"/>
+  <circle cx="400" cy="400" r="40" fill="#793a99" opacity="0.1"/>
   
-  <!-- Pattern overlay -->
-  <rect width="500" height="500" fill="url(#luxuryPattern)"/>
+  <!-- Lines and connections -->
+  <line x1="50" y1="50" x2="400" y2="40" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+  <line x1="400" y1="40" x2="100" y2="400" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+  <line x1="100" y1="400" x2="400" y2="400" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
+  <line x1="400" y1="400" x2="50" y2="50" stroke="#ffffff" stroke-width="0.5" opacity="0.2"/>
   
   <!-- Decorative elements -->
-  <line x1="0" y1="0" x2="500" y2="500" stroke="#793a99" stroke-width="0.5" opacity="0.1"/>
-  <line x1="500" y1="0" x2="0" y2="500" stroke="#b62c7f" stroke-width="0.5" opacity="0.1"/>
-  <line x1="250" y1="0" x2="250" y2="500" stroke="#ee3f37" stroke-width="0.5" opacity="0.1"/>
-  <line x1="0" y1="250" x2="500" y2="250" stroke="#ee3f37" stroke-width="0.5" opacity="0.1"/>
+  <circle cx="50" cy="50" r="3" fill="#ffffff" opacity="0.6"/>
+  <circle cx="400" cy="40" r="3" fill="#ffffff" opacity="0.6"/>
+  <circle cx="100" cy="400" r="3" fill="#ffffff" opacity="0.6"/>
+  <circle cx="400" cy="400" r="3" fill="#ffffff" opacity="0.6"/>
   
-  <!-- Subtle grid lines -->
-  <g opacity="0.1">
-    <line x1="0" y1="100" x2="500" y2="100" stroke="#000" stroke-width="0.2"/>
-    <line x1="0" y1="200" x2="500" y2="200" stroke="#000" stroke-width="0.2"/>
-    <line x1="0" y1="300" x2="500" y2="300" stroke="#000" stroke-width="0.2"/>
-    <line x1="0" y1="400" x2="500" y2="400" stroke="#000" stroke-width="0.2"/>
-    <line x1="100" y1="0" x2="100" y2="500" stroke="#000" stroke-width="0.2"/>
-    <line x1="200" y1="0" x2="200" y2="500" stroke="#000" stroke-width="0.2"/>
-    <line x1="300" y1="0" x2="300" y2="500" stroke="#000" stroke-width="0.2"/>
-    <line x1="400" y1="0" x2="400" y2="500" stroke="#000" stroke-width="0.2"/>
-  </g>
+  <!-- Smaller decoration points -->
+  <circle cx="150" cy="150" r="2" fill="#793a99" opacity="0.5"/>
+  <circle cx="300" cy="200" r="2" fill="#b62c7f" opacity="0.5"/>
+  <circle cx="250" cy="350" r="2" fill="#ee3f37" opacity="0.5"/>
+  
+  <!-- Additional thin lines for complexity -->
+  <line x1="150" y1="150" x2="300" y2="200" stroke="#ffffff" stroke-width="0.3" opacity="0.15"/>
+  <line x1="300" y1="200" x2="250" y2="350" stroke="#ffffff" stroke-width="0.3" opacity="0.15"/>
+  <line x1="250" y1="350" x2="150" y2="150" stroke="#ffffff" stroke-width="0.3" opacity="0.15"/>
 </svg>
