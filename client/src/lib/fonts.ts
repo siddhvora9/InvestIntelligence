@@ -1,13 +1,7 @@
-import { Playfair_Display, Montserrat } from 'next/font/google';
+// Font classes are defined in Tailwind configuration
+// This file serves as a reference to where fonts are used in the app
 
-export const playfair = Playfair_Display({
-  subsets: ['latin'],
-  variable: '--font-playfair',
-  display: 'swap',
-});
-
-export const montserrat = Montserrat({
-  subsets: ['latin'],
-  variable: '--font-montserrat',
-  display: 'swap',
-});
+export const fontClasses = {
+  playfair: 'font-playfair',
+  montserrat: 'font-montserrat'
+};
