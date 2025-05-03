@@ -15,21 +15,26 @@
   --card-foreground: 20 14.3% 4.1%;
   --border: 20 5.9% 90%;
   --input: 20 5.9% 90%;
-  --primary: 214 77% 14%; /* SHC navy */
+  --primary: 280 45% 41%; /* Primary color: #793a99 */
   --primary-foreground: 0 0% 100%;
-  --secondary: 43 76% 52%; /* SHC gold */
-  --secondary-foreground: 214 77% 14%;
-  --accent: 60 4.8% 95.9%;
-  --accent-foreground: 24 9.8% 10%;
+  --secondary: 329 61% 45%; /* Secondary color: #b62c7f */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 5 85% 57%; /* Accent color: #ee3f37 */
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
-  --ring: 214 77% 14%;
+  --ring: 280 45% 41%;
   --radius: 0.5rem;
-  --chart-1: 214 77% 14%;
-  --chart-2: 43 76% 52%;
-  --chart-3: 215 35% 24%;
-  --chart-4: 43 100% 71%;
-  --chart-5: 0 0% 90%;
+  --chart-1: 280 45% 41%;
+  --chart-2: 329 61% 45%;
+  --chart-3: 5 85% 57%;
+  --chart-4: 280 35% 60%;
+  --chart-5: 329 50% 60%;
+  
+  /* Hexadecimal values for direct use */
+  --primary-color: #793a99;
+  --secondary-color: #b62c7f;
+  --accent-color: #ee3f37;
 }
 
 .dark {
@@ -43,15 +48,15 @@
   --card-foreground: 60 9.1% 97.8%;
   --border: 12 6.5% 15.1%;
   --input: 12 6.5% 15.1%;
-  --primary: 214 77% 14%;
+  --primary: 280 45% 41%; /* Primary color: #793a99 */
   --primary-foreground: 0 0% 100%;
-  --secondary: 43 76% 52%;
-  --secondary-foreground: 214 77% 14%;
-  --accent: 12 6.5% 15.1%;
-  --accent-foreground: 60 9.1% 97.8%;
+  --secondary: 329 61% 45%; /* Secondary color: #b62c7f */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 5 85% 57%; /* Accent color: #ee3f37 */
+  --accent-foreground: 0 0% 100%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
-  --ring: 43 76% 52%;
+  --ring: 280 45% 41%;
 }
 
 @layer base {
@@ -69,12 +74,25 @@
 }
 
 @layer components {
+  .primary-gradient {
+    @apply bg-gradient-to-r from-[#793a99] to-[#8e4eb3];
+  }
+
+  .secondary-gradient {
+    @apply bg-gradient-to-r from-[#b62c7f] to-[#d03a91];
+  }
+  
+  .accent-gradient {
+    @apply bg-gradient-to-r from-[#ee3f37] to-[#f15d56];
+  }
+  
+  /* Keep the old gradients for backward compatibility */
   .gold-gradient {
-    @apply bg-gradient-to-r from-[#D4AF37] to-[#E9C969];
+    @apply bg-gradient-to-r from-[#b62c7f] to-[#d03a91];
   }
 
   .navy-gradient {
-    @apply bg-gradient-to-r from-[#0A2540] to-[#1E3A59];
+    @apply bg-gradient-to-r from-[#793a99] to-[#8e4eb3];
   }
 
   .text-shadow {
