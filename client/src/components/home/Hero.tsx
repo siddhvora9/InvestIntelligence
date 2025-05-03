@@ -1,25 +1,27 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Play } from 'lucide-react';
+import { Play, ChevronRight } from 'lucide-react';
+import financeIllustration from '@/assets/finance-illustration.svg';
+import abstractPattern from '@/assets/abstract-pattern.svg';
 
 const Hero = () => {
   // Transaction stats similar to fundgini.com
   const stats = [
-    { title: 'Debt Finance', count: 172, icon: '💼' },
-    { title: 'Equity Fundraise', count: 302, icon: '📈' },
-    { title: 'Buy (M&A/JV)', count: 181, icon: '🤝' },
-    { title: 'Sell', count: 194, icon: '🏢' },
+    { title: 'Debt Finance', count: 172, icon: '💼', color: 'from-primary/20 to-primary/30' },
+    { title: 'Equity Fundraise', count: 302, icon: '📈', color: 'from-secondary/20 to-secondary/30' },
+    { title: 'Buy (M&A/JV)', count: 181, icon: '🤝', color: 'from-accent/20 to-accent/30' },
+    { title: 'Sell', count: 194, icon: '🏢', color: 'from-primary/20 to-secondary/30' },
   ];
 
   return (
     <section className="relative bg-[#081f36] overflow-hidden">
       {/* Dark background pattern */}
-      <div className="absolute inset-0 z-0 opacity-10 pointer-events-none">
-        <div className="w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC40Ij48cGF0aCBkPSJNMzYgMzRoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJ2LTRoMnY0em0wLTZoLTJWNmgydjR6Ii8+PC9nPjwvZz48L3N2Zz4=')]"></div>
+      <div className="absolute inset-0 z-0 pointer-events-none">
+        <img src={abstractPattern} alt="Background Pattern" className="w-full h-full object-cover opacity-30" />
       </div>
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20 relative z-10">
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <motion.div 
             className="max-w-2xl"
@@ -27,65 +29,82 @@ const Hero = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-white font-playfair font-bold text-3xl md:text-4xl lg:text-5xl leading-tight mb-4">
+            <div className="inline-block px-4 py-1 bg-white/10 backdrop-blur-sm rounded-full mb-5">
+              <p className="text-white/90 text-sm font-medium tracking-wide">Financial Excellence Since 2005</p>
+            </div>
+            
+            <h1 className="text-white font-playfair font-bold text-3xl md:text-5xl lg:text-6xl leading-tight mb-6">
               Welcome to <span className="text-accent">SHC Partners</span>
             </h1>
-            <p className="text-white/90 font-montserrat text-lg mb-6">
+            <p className="text-white/90 font-montserrat text-lg md:text-xl mb-8 max-w-xl">
               Global Ecosystem for Equity Funding | Debt Finance | Mergers and Acquisitions
             </p>
             
-            <div className="flex items-center gap-4 mb-8">
+            <div className="flex flex-wrap items-center gap-4 mb-10">
               <Button
-                className="bg-accent hover:bg-accent/90 text-white flex items-center gap-2 rounded-full"
+                className="bg-accent hover:bg-accent/90 text-white flex items-center gap-2 rounded-full shadow-lg shadow-accent/20 py-6 px-8 h-auto"
               >
-                <Play size={16} />
-                <span>Play Video</span>
+                <Play size={18} />
+                <span className="font-medium text-base">Watch Overview</span>
               </Button>
               
               <Button 
                 asChild 
                 variant="outline" 
-                className="border-white text-white hover:bg-white/10 rounded-full"
+                className="border-white/30 text-white hover:bg-white/10 rounded-full backdrop-blur-sm py-6 px-8 h-auto group"
               >
-                <Link href="#contact">Login to Post Deal</Link>
+                <Link href="#contact" className="flex items-center gap-2">
+                  <span className="font-medium text-base">Login to Post Deal</span>
+                  <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
+                </Link>
               </Button>
             </div>
           </motion.div>
           
           <motion.div
-            className="w-full lg:w-1/3"
+            className="w-full lg:w-2/5 xl:w-1/3"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <div className="bg-primary/30 backdrop-blur-sm p-4 rounded-lg border border-white/10">
+            <div className="bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-sm p-6 rounded-xl border border-white/10 shadow-xl shadow-black/10">
               <img 
-                src="https://placehold.co/400x300/793a99/ffffff?text=SHC+Partners" 
-                alt="SHC Partners" 
+                src={financeIllustration} 
+                alt="SHC Partners Financial Services" 
                 className="w-full h-auto rounded"
               />
+              <div className="mt-4 text-center">
+                <span className="inline-block px-4 py-1 bg-white/10 rounded-full text-white/80 text-sm">FINANCIAL EXCELLENCE</span>
+              </div>
             </div>
           </motion.div>
         </div>
         
         {/* Transaction Stats Section */}
         <motion.div 
-          className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4"
+          className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-4"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           {stats.map((stat, index) => (
-            <div key={index} className="bg-white/5 p-4 rounded-lg text-center backdrop-blur-sm hover:bg-white/10 transition duration-300">
-              <div className="text-3xl mb-2">{stat.icon}</div>
-              <p className="text-white font-montserrat text-sm mb-1">{stat.title}</p>
-              <p className="text-white font-playfair font-bold text-xl">{stat.count} Deals</p>
+            <div 
+              key={index} 
+              className={`bg-gradient-to-br ${stat.color} p-5 rounded-xl text-center backdrop-blur-sm hover:shadow-lg transition duration-300 border border-white/5 shadow shadow-black/5`}
+            >
+              <div className="text-4xl mb-3">{stat.icon}</div>
+              <p className="text-white font-montserrat text-sm mb-1 opacity-90">{stat.title}</p>
+              <p className="text-white font-playfair font-bold text-2xl">{stat.count} <span className="text-sm opacity-80">Deals</span></p>
             </div>
           ))}
           
-          <div className="col-span-2 md:col-span-4 bg-white/5 p-4 mt-4 rounded-lg text-center backdrop-blur-sm">
-            <p className="text-white/90 font-playfair text-2xl font-bold">416</p>
-            <p className="text-white/80 text-sm">Total Deals</p>
+          <div className="col-span-2 md:col-span-4 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 p-5 mt-4 rounded-xl text-center backdrop-blur-sm border border-white/5 shadow shadow-black/5">
+            <div className="flex items-center justify-center gap-4">
+              <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
+              <p className="text-white/90 font-playfair text-3xl font-bold">416</p>
+              <p className="text-white/80 text-sm font-medium">Total Deals</p>
+              <div className="w-16 h-1 bg-gradient-to-r from-secondary to-accent rounded-full"></div>
+            </div>
           </div>
         </motion.div>
       </div>
