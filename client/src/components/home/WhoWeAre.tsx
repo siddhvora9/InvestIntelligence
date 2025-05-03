@@ -1,5 +1,7 @@
 import { motion } from 'framer-motion';
 import { fadeIn, staggerContainer } from '@/lib/animations';
+import teamMeetingImage from '@/assets/team-meeting.svg';
+import officeSpaceImage from '@/assets/office-space.svg';
 
 const coreValues = [
   {
@@ -35,7 +37,7 @@ const WhoWeAre = () => {
           <motion.div variants={fadeIn('right', 'tween', 0.2, 1)}>
             <div className="mb-6">
               <h2 className="font-playfair font-bold text-3xl md:text-4xl text-primary mb-2">Who We Are</h2>
-              <div className="w-20 h-1 gold-gradient rounded-full"></div>
+              <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
             </div>
             
             <p className="text-gray-700 mb-6">
@@ -76,19 +78,19 @@ const WhoWeAre = () => {
             variants={fadeIn('left', 'tween', 0.2, 1)}
             className="relative"
           >
-            <div className="rounded-lg overflow-hidden shadow-xl">
+            <div className="rounded-lg overflow-hidden shadow-xl bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1573497491765-55b568cea7be?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                src={teamMeetingImage} 
                 alt="Investment professionals in a meeting" 
-                className="w-full h-96 object-cover"
+                className="w-full h-96 object-contain p-2"
               />
             </div>
             
-            <div className="absolute -bottom-6 -left-6 w-72 h-72 rounded-lg overflow-hidden shadow-xl hidden lg:block">
+            <div className="absolute -bottom-6 -left-6 w-72 h-72 rounded-lg overflow-hidden shadow-xl hidden lg:block bg-white">
               <img 
-                src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 
+                src={officeSpaceImage} 
                 alt="Modern office space" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-contain p-2"
               />
             </div>
             

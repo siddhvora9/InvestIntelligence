@@ -1,0 +1,73 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f9f9f9"/>
+  
+  <!-- Conference table -->
+  <rect x="100" y="300" width="600" height="200" rx="20" fill="#e0e0e0"/>
+  <rect x="130" y="320" width="540" height="160" rx="10" fill="#f5f5f5"/>
+  
+  <!-- People silhouettes (seated at table) -->
+  <!-- Person 1 (left) -->
+  <circle cx="200" cy="260" r="35" fill="#793a99" opacity="0.8"/>
+  <rect x="175" y="295" width="50" height="70" rx="10" fill="#793a99" opacity="0.8"/>
+  
+  <!-- Person 2 (left-center) -->
+  <circle cx="300" cy="260" r="35" fill="#b62c7f" opacity="0.8"/>
+  <rect x="275" y="295" width="50" height="70" rx="10" fill="#b62c7f" opacity="0.8"/>
+  
+  <!-- Person 3 (center) -->
+  <circle cx="400" cy="260" r="40" fill="#793a99" opacity="0.9"/>
+  <rect x="370" y="300" width="60" height="80" rx="10" fill="#793a99" opacity="0.9"/>
+  
+  <!-- Person 4 (right-center) -->
+  <circle cx="500" cy="260" r="35" fill="#b62c7f" opacity="0.8"/>
+  <rect x="475" y="295" width="50" height="70" rx="10" fill="#b62c7f" opacity="0.8"/>
+  
+  <!-- Person 5 (right) -->
+  <circle cx="600" cy="260" r="35" fill="#793a99" opacity="0.8"/>
+  <rect x="575" y="295" width="50" height="70" rx="10" fill="#793a99" opacity="0.8"/>
+  
+  <!-- Laptops on table -->
+  <rect x="180" y="350" width="40" height="30" rx="3" fill="#444" opacity="0.7"/>
+  <rect x="280" y="350" width="40" height="30" rx="3" fill="#444" opacity="0.7"/>
+  <rect x="380" y="350" width="40" height="30" rx="3" fill="#444" opacity="0.7"/>
+  <rect x="480" y="350" width="40" height="30" rx="3" fill="#444" opacity="0.7"/>
+  <rect x="580" y="350" width="40" height="30" rx="3" fill="#444" opacity="0.7"/>
+  
+  <!-- Coffee cups -->
+  <circle cx="240" cy="360" r="10" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  <circle cx="340" cy="360" r="10" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  <circle cx="440" cy="360" r="10" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  <circle cx="540" cy="360" r="10" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  <circle cx="640" cy="360" r="10" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  
+  <!-- Presentation screen on wall -->
+  <rect x="300" y="100" width="200" height="120" fill="#333"/>
+  <rect x="310" y="110" width="180" height="100" fill="#fff"/>
+  
+  <!-- Subtle financial chart on screen -->
+  <path d="M320 180 L350 160 L380 170 L410 140 L440 150 L470 130" stroke="#b62c7f" stroke-width="2" fill="none"/>
+  <path d="M320 180 L350 170 L380 190 L410 150 L440 160 L470 140" stroke="#793a99" stroke-width="2" fill="none"/>
+  
+  <!-- Abstract financial data points -->
+  <circle cx="350" cy="160" r="3" fill="#b62c7f"/>
+  <circle cx="380" cy="170" r="3" fill="#b62c7f"/>
+  <circle cx="410" cy="140" r="3" fill="#b62c7f"/>
+  <circle cx="440" cy="150" r="3" fill="#b62c7f"/>
+  <circle cx="470" cy="130" r="3" fill="#b62c7f"/>
+  
+  <circle cx="350" cy="170" r="3" fill="#793a99"/>
+  <circle cx="380" cy="190" r="3" fill="#793a99"/>
+  <circle cx="410" cy="150" r="3" fill="#793a99"/>
+  <circle cx="440" cy="160" r="3" fill="#793a99"/>
+  <circle cx="470" cy="140" r="3" fill="#793a99"/>
+  
+  <!-- Light fixtures -->
+  <circle cx="250" cy="50" r="15" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  <circle cx="400" cy="50" r="15" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  <circle cx="550" cy="50" r="15" fill="#fff" stroke="#ddd" stroke-width="2"/>
+  
+  <!-- Wall decor elements -->
+  <rect x="650" y="120" width="80" height="120" rx="5" fill="#f0f0f0" stroke="#ddd" stroke-width="2"/>
+  <rect x="70" y="120" width="80" height="120" rx="5" fill="#f0f0f0" stroke="#ddd" stroke-width="2"/>
+</svg>

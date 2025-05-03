@@ -10,7 +10,7 @@ const Hero = () => {
   const stats = [
     { title: 'Debt Finance', count: 172, icon: '💼', color: 'from-primary/20 to-primary/30' },
     { title: 'Equity Fundraise', count: 302, icon: '📈', color: 'from-secondary/20 to-secondary/30' },
-    { title: 'Buy (M&A/JV)', count: 181, icon: '🤝', color: 'from-accent/20 to-accent/30' },
+    { title: 'Buy (M&A/JV)', count: 181, icon: '🤝', color: 'from-primary/20 to-secondary/30' },
     { title: 'Sell', count: 194, icon: '🏢', color: 'from-primary/20 to-secondary/30' },
   ];
 
@@ -34,7 +34,7 @@ const Hero = () => {
             </div>
             
             <h1 className="text-white font-playfair font-bold text-3xl md:text-5xl lg:text-6xl leading-tight mb-6">
-              Welcome to <span className="text-accent">SHC Partners</span>
+              Welcome to <span className="text-secondary">SHC Partners</span>
             </h1>
             <p className="text-white/90 font-montserrat text-lg md:text-xl mb-8 max-w-xl">
               Global Ecosystem for Equity Funding | Debt Finance | Mergers and Acquisitions
@@ -42,7 +42,7 @@ const Hero = () => {
             
             <div className="flex flex-wrap items-center gap-4 mb-10">
               <Button
-                className="bg-accent hover:bg-accent/90 text-white flex items-center gap-2 rounded-full shadow-lg shadow-accent/20 py-6 px-8 h-auto"
+                className="bg-secondary hover:bg-secondary/90 text-white flex items-center gap-2 rounded-full shadow-lg shadow-secondary/20 py-6 px-8 h-auto"
               >
                 <Play size={18} />
                 <span className="font-medium text-base">Watch Overview</span>
@@ -53,8 +53,8 @@ const Hero = () => {
                 variant="outline" 
                 className="border-white/30 text-white hover:bg-white/10 rounded-full backdrop-blur-sm py-6 px-8 h-auto group"
               >
-                <Link href="#contact" className="flex items-center gap-2">
-                  <span className="font-medium text-base">Login to Post Deal</span>
+                <Link href="/login" className="flex items-center gap-2">
+                  <span className="font-medium text-base">Login to Portal</span>
                   <ChevronRight size={16} className="transition-transform group-hover:translate-x-1" />
                 </Link>
               </Button>
@@ -98,12 +98,12 @@ const Hero = () => {
             </div>
           ))}
           
-          <div className="col-span-2 md:col-span-4 bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 p-5 mt-4 rounded-xl text-center backdrop-blur-sm border border-white/5 shadow shadow-black/5">
+          <div className="col-span-2 md:col-span-4 bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 p-5 mt-4 rounded-xl text-center backdrop-blur-sm border border-white/5 shadow shadow-black/5">
             <div className="flex items-center justify-center gap-4">
               <div className="w-16 h-1 bg-gradient-to-r from-primary to-secondary rounded-full"></div>
               <p className="text-white/90 font-playfair text-3xl font-bold">416</p>
               <p className="text-white/80 text-sm font-medium">Total Deals</p>
-              <div className="w-16 h-1 bg-gradient-to-r from-secondary to-accent rounded-full"></div>
+              <div className="w-16 h-1 bg-gradient-to-r from-secondary to-primary rounded-full"></div>
             </div>
           </div>
         </motion.div>
