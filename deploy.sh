@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# InvestIntelligence EC2 Deployment Script
+# InvestIntelligence EC2 Deployment Script for Amazon Linux
 # This script safely deploys the application without breaking existing installations
 
 set -e  # Exit on any error
@@ -54,22 +54,22 @@ if [ "$EUID" -eq 0 ]; then
     exit 1
 fi
 
-print_status "Starting InvestIntelligence deployment..."
+print_status "Starting InvestIntelligence deployment on Amazon Linux..."
 
 # Update system packages
 print_status "Updating system packages..."
-sudo apt update
-sudo apt upgrade -y
+sudo yum update -y
 
 # Install essential packages
 print_status "Installing essential packages..."
-sudo apt install -y curl wget git unzip software-properties-common apt-transport-https ca-certificates gnupg lsb-release
+sudo yum install -y curl wget git unzip
 
 # Install Node.js if not already installed
 if ! command_exists node; then
     print_status "Installing Node.js..."
-    curl -fsSL https://deb.nodesource.com/setup_18.x | sudo -E bash -
-    sudo apt-get install -y nodejs
+    # Install NodeSource repository
+    curl -fsSL https://rpm.nodesource.com/setup_18.x | sudo bash -
+    sudo yum install -y nodejs
     print_success "Node.js installed successfully"
 else
     NODE_VERSION=$(node --version)
@@ -79,7 +79,7 @@ fi
 # Install npm if not already installed
 if ! command_exists npm; then
     print_status "Installing npm..."
-    sudo apt-get install -y npm
+    sudo yum install -y npm
     print_success "npm installed successfully"
 else
     NPM_VERSION=$(npm --version)
@@ -98,7 +98,9 @@ fi
 # Install Nginx if not already installed
 if ! command_exists nginx; then
     print_status "Installing Nginx..."
-    sudo apt install -y nginx
+    # Install EPEL repository for nginx
+    sudo yum install -y epel-release
+    sudo yum install -y nginx
     sudo systemctl enable nginx
     sudo systemctl start nginx
     print_success "Nginx installed and started"
@@ -190,10 +192,10 @@ pm2 startup
 print_status "Configuring Nginx..."
 
 # Backup existing nginx config
-backup_config "/etc/nginx/sites-available/default"
+backup_config "/etc/nginx/nginx.conf"
 
 # Create nginx configuration
-sudo tee /etc/nginx/sites-available/investintelligence > /dev/null << EOF
+sudo tee /etc/nginx/conf.d/investintelligence.conf > /dev/null << EOF
 server {
     listen 80;
     server_name _;
@@ -240,10 +242,6 @@ server {
 }
 EOF
 
-# Enable the site
-sudo ln -sf /etc/nginx/sites-available/investintelligence /etc/nginx/sites-enabled/
-sudo rm -f /etc/nginx/sites-enabled/default
-
 # Test nginx configuration
 if sudo nginx -t; then
     sudo systemctl restart nginx
@@ -253,11 +251,21 @@ else
     exit 1
 fi
 
-# Configure firewall
+# Configure firewall (Amazon Linux uses iptables/security groups)
 print_status "Configuring firewall..."
-sudo ufw allow ssh
-sudo ufw allow 'Nginx Full'
-sudo ufw --force enable
+# Note: On AWS EC2, you should configure security groups instead
+# This is just for local firewall rules
+sudo yum install -y iptables-services
+sudo systemctl enable iptables
+sudo systemctl start iptables
+
+# Allow HTTP and HTTPS
+sudo iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+sudo iptables -A INPUT -p tcp --dport 22 -j ACCEPT
+sudo service iptables save
+
+print_warning "Remember to configure AWS Security Groups to allow HTTP (80), HTTPS (443), and SSH (22)"
 
 # Create deployment info file
 cat > deployment-info.txt << EOF
@@ -274,6 +282,7 @@ Next Steps:
 2. Update nginx configuration with your domain name
 3. Set up SSL certificate with Let's Encrypt
 4. Configure Route 53 DNS
+5. Configure AWS Security Groups
 
 Useful Commands:
 - View logs: pm2 logs investintelligence
@@ -288,8 +297,13 @@ MongoDB Atlas Setup:
 4. Update MONGODB_URI in .env file
 
 SSL Certificate:
-sudo apt install certbot python3-certbot-nginx
+sudo yum install -y certbot python3-certbot-nginx
 sudo certbot --nginx -d your-domain.com -d www.your-domain.com
+
+AWS Security Groups:
+- Allow HTTP (80)
+- Allow HTTPS (443)
+- Allow SSH (22)
 EOF
 
 print_success "Deployment completed successfully!"
@@ -299,6 +313,7 @@ echo "1. Edit .env file with your MongoDB Atlas connection string"
 echo "2. Update nginx configuration with your domain name"
 echo "3. Set up SSL certificate"
 echo "4. Configure Route 53 DNS"
+echo "5. Configure AWS Security Groups"
 
 print_status "Deployment information saved to: deployment-info.txt"
 print_status "PM2 status:"

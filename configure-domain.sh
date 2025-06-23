@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# InvestIntelligence Domain Configuration Script
+# InvestIntelligence Domain Configuration Script for Amazon Linux
 # Run this after the main deployment script
 
 set -e
@@ -42,7 +42,7 @@ print_status "Configuring domain: $DOMAIN"
 
 # Update nginx configuration with domain
 print_status "Updating Nginx configuration..."
-sudo tee /etc/nginx/sites-available/investintelligence > /dev/null << EOF
+sudo tee /etc/nginx/conf.d/investintelligence.conf > /dev/null << EOF
 server {
     listen 80;
     server_name $DOMAIN www.$DOMAIN;
@@ -101,8 +101,8 @@ fi
 # Install Certbot if not already installed
 if ! command -v certbot >/dev/null 2>&1; then
     print_status "Installing Certbot..."
-    sudo apt update
-    sudo apt install -y certbot python3-certbot-nginx
+    sudo yum update -y
+    sudo yum install -y certbot python3-certbot-nginx
     print_success "Certbot installed"
 else
     print_status "Certbot already installed"
