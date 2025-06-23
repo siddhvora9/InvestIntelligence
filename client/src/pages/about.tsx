@@ -27,7 +27,7 @@ export default function About() {
               animate="visible"
               variants={fadeIn}
             >
-              <h1 className="text-white font-serif font-bold text-4xl md:text-5xl mb-6">About SHC Partners</h1>
+              <h1 className="text-white font-serif font-bold text-4xl md:text-5xl mb-6">About SHC Growth Partners</h1>
               <AnimatedGradient className="w-24 mx-auto mb-6" />
               <p className="text-white/90 text-lg mb-8">
                 A boutique investment banking firm dedicated to helping businesses grow financially, strategically, and sustainably.
@@ -52,7 +52,7 @@ export default function About() {
                 <AnimatedGradient className="w-20 mb-6" />
               </div>
               <p className="text-gray-700 mb-6">
-                SHC Partners is a boutique investment banking firm dedicated to helping businesses grow- financially, strategically, and sustainably. With our roots in India's dynamic market and a team of seasoned professionals, we guide clients through transformative financial decisions.
+                SHC Growth Partners is a boutique investment banking firm dedicated to helping businesses grow- financially, strategically, and sustainably. With our roots in India's dynamic market and a team of seasoned professionals, we guide clients through transformative financial decisions.
               </p>
               <p className="text-gray-700 mb-8">
                 From raising capital to navigating complex mergers, we are committed to building long-term value for our clients.
@@ -60,7 +60,7 @@ export default function About() {
               <div className="mb-10">
                 <h3 className="font-serif font-semibold text-2xl text-primary mb-4">Our Philosophy</h3>
                 <p className="text-gray-700">
-                  At SHC Partners, we believe in growth with purpose. We are more than bankers—we are partners in your journey. Our mission is to deliver financial solutions that fuel sustainable growth for India's emerging businesses. Whether you're securing funding, acquiring a competitor, or exploring your valuation, we're here to ensure that every step forward is strategic and successful.
+                  At SHC Growth Partners, we believe in growth with purpose. We are more than bankers—we are partners in your journey. Our mission is to deliver financial solutions that fuel sustainable growth for India's emerging businesses. Whether you're securing funding, acquiring a competitor, or exploring your valuation, we're here to ensure that every step forward is strategic and successful.
                 </p>
               </div>
             </motion.div>
@@ -285,7 +285,7 @@ export default function About() {
                 Partner With Us for Your Financial Success
               </h2>
               <p className="text-white/80 mb-8 text-lg">
-                Experience the SHC Partners difference. Let's work together to achieve your financial goals and build lasting value.
+                Experience the SHC Growth Partners difference. Let's work together to achieve your financial goals and build lasting value.
               </p>
               <Button asChild size="lg" className="bg-secondary hover:bg-secondary-dark text-primary font-medium shadow-lg">
                 <Link href="/contact">

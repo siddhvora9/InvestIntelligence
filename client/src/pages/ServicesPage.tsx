@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
-import { BadgeDollarSign, Calculator, TrendingUp, BarChart3 } from 'lucide-react';
+import { BadgeDollarSign, Calculator, TrendingUp, BarChart3, Building2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { fadeIn, staggerContainer } from '@/lib/animations';
 import { Link } from 'wouter';
@@ -8,46 +8,79 @@ import { Link } from 'wouter';
 const services = [
   {
     id: 'equity',
-    title: 'Equity Solutions',
+    title: 'Equity Advisory & Fundraise',
     icon: <BadgeDollarSign className="h-12 w-12" />,
-    description: 'We help businesses raise capital that matches their stage and growth strategy, connecting them with the right investors and structuring deals that create long-term value.',
+    description: 'We empower businesses to secure growth-aligned equity capital by identifying the right investors—be it institutional investors, venture capitalists, family offices, or private equity firms—and structuring investment rounds that build long-term enterprise value.',
     features: [
       'Growth Equity: Attract institutional investors to scale operations',
       'Early-Stage Funding: Structure angel/VC rounds for startups',
       'Investor Positioning: Develop pitch decks and financial models that resonate',
-      'Equity Structuring: Advise on ownership and governance frameworks'
+      'Equity Structuring: Advise on ownership and governance frameworks',
+      'Structuring Angel, Pre-Seed, Seed, Series A/B/C and late-stage VC/PE rounds for startups and scaleups',
+      'SME Growth Funds: Enabling access to sector-specific and government-backed equity capital for small and mid-sized enterprises',
+      'Investor Positioning: Crafting compelling investor pitch decks, data rooms, financial models, and valuation narratives',
+      'Private Equity & Family Office Syndication: Connecting businesses with long-term strategic investors for expansion or buyouts',
+      'Equity Structuring & Governance: Advisory on cap table management, ESOPs, and shareholder alignment frameworks'
     ],
     image: 'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
   },
   {
     id: 'debt',
-    title: 'Debt Advisory',
+    title: 'Debt Advisory & Capital Structuring',
     icon: <Calculator className="h-12 w-12" />,
-    description: 'Our debt advisory services help businesses leverage capital without diluting ownership, providing flexible funding solutions tailored to your specific requirements.',
+    description: 'Our debt advisory solutions help businesses access non-dilutive capital through flexible and structured funding, tailored for growth, working capital, and long-term expansion—via traditional banking institutions, NBFCs, debt funds, and venture lenders.',
     features: [
       'Loan Syndication & NBFC Tie-ups: Tap into our network for structured deals',
       'Co-lending & FLDG arrangement',
       'Term Loans / Project Finance: Long-term financing for major initiatives',
       'Working Capital Financing',
       'Venture Debt – Govt Grant & CGTMSE',
-      'Export/Import Financing'
+      'Export/Import Financing',
+      'B2B Asset Leasing Solutions',
+      'Loan Syndication & NBFC Tie-ups: Leveraging our lending partner network for structured debt solutions',
+      'Venture Debt: Facilitating growth and bridge capital from institutional venture lenders',
+      'Family Office Debt Solutions: Debt capital from family-run funds aligned with business vision',
+      'Term Loans & Working Capital Finance: Customized facilities for expansion, inventory, receivables, and operations',
+      'Co-lending & FLDG Arrangements: For fintechs and NBFCs seeking leveraged growth',
+      'Government-Backed Schemes: Enabling access to CGTMSE, SIDBI, Mudra, and other schemes',
+      'Export-Import Finance & Asset Leasing: Trade finance, invoice discounting, and lease-based capital structuring',
+      'Project Financing: Long-tenure capital for infrastructure, manufacturing, and greenfield ventures'
     ],
     image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
   },
   {
     id: 'strategic',
-    title: 'Strategic Advisory',
+    title: 'Strategic & M&A Advisory',
     icon: <TrendingUp className="h-12 w-12" />,
-    description: 'We provide high-level strategic input that goes beyond numbers, helping businesses navigate complex decisions and position themselves for sustainable growth.',
+    description: 'We go beyond capital to offer strategic insights that enable smart decisions, from mergers to IPOs. Our strategic advisory services help you unlock synergies, enter new markets, and manage transformations efficiently.',
     features: [
       'M&A Advisory: From target search to post-deal integration',
       'Financial Due Diligence: For investors or acquirers',
       'Consulting: Market entry, business strategy, financial re-engineering',
       'GTM Strategy & B2B Strategic Collaboration',
       'NBFC Buying & selling & RBI Listing',
-      'IPO Services & Pre IPO Funding'
+      'IPO Services & Pre IPO Funding',
+      'M&A Advisory: From target search, valuation, due diligence, to deal execution and post-merger integration',
+      'Financial Due Diligence: For both strategic and financial investors or corporate buyers',
+      'Market Entry & Business Strategy Consulting: Structuring GTM strategies and expansion roadmaps for startups and SMEs',
+      'IPO & Pre-IPO Planning: Advisory on listing preparation, documentation, and institutional readiness',
+      'NBFC Licensing & M&A: End-to-end support for NBFC formation, acquisition, and RBI compliances',
+      'B2B Strategic Collaboration: Joint ventures, strategic partnerships, and ecosystem building'
     ],
     image: 'https://images.unsplash.com/photo-1558403194-611308249627?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+  },
+  {
+    id: 'asset-leasing',
+    title: 'Asset Leasing & Alternative Capital Solutions',
+    icon: <Building2 className="h-12 w-12" />,
+    description: 'We support businesses in transitioning from asset ownership to asset efficiency by structuring leasing and alternative capital mechanisms that free up cash flows and boost scalability.',
+    features: [
+      'Operating & Financial Leasing: Lease-based asset acquisition for machinery, vehicles, and tech infrastructure',
+      'Vendor & Captive Financing Models: Financing embedded in product/service delivery for SMEs and corporates',
+      'Equipment & Infrastructure Leasing: Structuring leases for capex-heavy industries',
+      'Public-Private Partnerships (PPP): Advisory on capital raising and asset utilization under PPP models'
+    ],
+    image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
   },
   {
     id: 'valuation',
@@ -60,9 +93,70 @@ const services = [
       'Valuation of Financial Securities, Instruments & Derivatives',
       'Valuation of Industrial Assets, Plant & Machinery',
       'Valuation of Real Estate',
-      'Valuation of Infrastructure Assets & Specialized Assets'
+      'Valuation of Infrastructure Assets & Specialized Assets',
+      'Purchase Price Allocations for Mergers & Acquisitions',
+      'Impairment Studies for Tangible Assets',
+      'Impairment Studies for Intangible Assets & Goodwill',
+      'Valuation of ESOPs and Sweat Equity',
+      'Valuation for Tax, Transfer Pricing and Company Law Matters',
+      'Fairness Opinions'
     ],
     image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+  },
+  {
+    id: 'assurance',
+    title: 'Assurance and Attestation Services',
+    icon: <Calculator className="h-12 w-12" />,
+    description: 'Our assurance and attestation services provide comprehensive audit and compliance solutions to ensure your business operations meet regulatory requirements and industry standards.',
+    features: [
+      'Forensic Audit / Inspection / Investigation Services',
+      'Social Audits',
+      'Statutory Audit under various enactments',
+      'Tax Audit',
+      'Internal Audit',
+      'Concurrent Audit',
+      'Management Audit',
+      'Compliance Audit',
+      'Operations Audit'
+    ],
+    image: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+  },
+  {
+    id: 'advisory',
+    title: 'Advisory & Consultancy',
+    icon: <TrendingUp className="h-12 w-12" />,
+    description: 'Our advisory and consultancy services provide expert guidance to help organizations optimize their operations, implement best practices, and achieve sustainable growth.',
+    features: [
+      'Corporate Valuation studies, Corporate Restructuring and Mergers & Acquisition',
+      'Review of financial planning and policies of client organization for effective utilization of resources',
+      'Feasibility studies & Due Diligence',
+      'Performance measurement studies',
+      'Appraisal of personnel policies and practices, including selection of executive personnel, data processing, general administration, etc.',
+      'Design, develop and conduct training programs for personnel of client organization',
+      'Assist in finding solutions for specific business problems such as market segmentation, product mix decisions, pricing decisions, etc.',
+      'Base line studies and market research studies',
+      'Designing and drafting of CSR policy, assist in implementation of CSR Programs and conducting impact assessment studies',
+      'Educational Institutes Approval Advisory Services',
+      'Assistance in Certification & Accreditation (ISO, NBA, NAAC, etc)'
+    ],
+    image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
+  },
+  {
+    id: 'taxation',
+    title: 'Taxation Services',
+    icon: <BadgeDollarSign className="h-12 w-12" />,
+    description: 'Our comprehensive taxation services help individuals and organizations navigate complex tax regulations, optimize tax positions, and ensure compliance with all tax-related requirements.',
+    features: [
+      'Tax Planning for Individuals, Partnership firms, Charitable Trust and Companies etc.',
+      'Returns Filing',
+      'Income Tax Returns',
+      'GST Returns',
+      'Professional Tax Returns',
+      'VAT Returns',
+      'Representation before Tax Authorities, Provident Fund Authority, Municipality Cess Authority at assessment level and appeal level',
+      'Transfer Pricing advisory'
+    ],
+    image: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'
   }
 ];
 
@@ -70,7 +164,7 @@ const ServicesPage = () => {
   return (
     <>
       <Helmet>
-        <title>Our Services | SHC Partners</title>
+        <title>Our Services | SHC Growth Partners</title>
         <meta name="description" content="Comprehensive financial solutions tailored to your business needs - Equity, Debt, Strategic Advisory, and Valuation services." />
       </Helmet>
 
@@ -111,7 +205,7 @@ const ServicesPage = () => {
             <h2 className="font-playfair font-bold text-3xl md:text-4xl text-primary mb-3">Financial Solutions for Every Need</h2>
             <div className="w-24 h-1 gold-gradient rounded-full mx-auto mb-6"></div>
             <p className="text-gray-700 max-w-3xl mx-auto">
-              At SHC Partners, we provide a comprehensive suite of investment banking and financial advisory services designed to meet the diverse needs of growing businesses.
+              At SHC Growth Partners, we provide a comprehensive suite of investment banking and financial advisory services designed to meet the diverse needs of growing businesses.
             </p>
           </motion.div>
 

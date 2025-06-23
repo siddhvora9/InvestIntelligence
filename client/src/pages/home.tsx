@@ -2,12 +2,10 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import AnimatedGradient from "@/components/ui/animated-gradient";
-import { ChevronRight, DollarSign, LineChart, BarChart3, PieChart } from "lucide-react";
-import { serviceData } from "@/data/services";
-import { clientTypes } from "@/data/services";
+import { DollarSign, BarChart3, PieChart } from "lucide-react";
 import { transactionData } from "@/data/transactions";
-import { Separator } from "@/components/ui/separator";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
+import PartnersSection from "@/components/home/TeamSection";
 
 export default function Home() {
   // Container animation
@@ -30,7 +28,7 @@ export default function Home() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-primary">
+      <section className="relative overflow-hidden bg-primary min-h-screen flex items-center">
         {/* Background overlay gradient */}
         <div className="absolute inset-0 z-0 opacity-20 pointer-events-none bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')] bg-cover bg-center"></div>
         
@@ -45,7 +43,7 @@ export default function Home() {
               Empowering Businesses to Grow, Scale, and Succeed
             </h1>
             <p className="text-white/90 font-sans text-lg md:text-xl mb-8 max-w-2xl">
-              SHC Partners delivers strategic investment banking solutions, designed for India's ambitious startups and growing enterprises.
+              SHC Growth Partners delivers strategic investment banking solutions, designed for India's ambitious startups and growing enterprises.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild size="lg" className="bg-secondary hover:bg-secondary-dark text-primary font-medium shadow-lg">
@@ -63,128 +61,6 @@ export default function Home() {
         </div>
         
         <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-white to-transparent"></div>
-      </section>
-
-      {/* Services Section */}
-      <section id="services" className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="font-serif font-bold text-3xl md:text-4xl text-primary mb-3">
-                Our Services
-              </h2>
-              <AnimatedGradient className="w-24 mx-auto mb-6" />
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Comprehensive financial solutions tailored to your business needs
-              </p>
-            </motion.div>
-          </div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8"
-            variants={containerAnimation}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-          >
-            {serviceData.map((service, index) => (
-              <motion.div 
-                key={index}
-                className="service-card bg-white rounded-lg shadow-lg overflow-hidden"
-                variants={itemAnimation}
-              >
-                <div className="p-6">
-                  <div className="icon-container w-14 h-14 bg-secondary/10 rounded-full flex items-center justify-center text-secondary mb-5">
-                    {service.icon}
-                  </div>
-                  <h3 className="font-serif font-semibold text-xl text-primary mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6">{service.description}</p>
-                  <ul className="space-y-3 mb-6">
-                    {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-start">
-                        <div className="flex-shrink-0 mr-3 mt-1">
-                          <div className="w-1.5 h-1.5 bg-secondary rounded-full"></div>
-                        </div>
-                        <p className="text-sm text-gray-600">{feature}</p>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button asChild variant="link" className="text-primary hover:text-secondary p-0 h-auto">
-                    <Link href={`/services#${service.id}`}>
-                      <a className="inline-flex items-center">
-                        <span>Learn More</span>
-                        <ChevronRight size={16} className="ml-1" />
-                      </a>
-                    </Link>
-                  </Button>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
-          <div className="text-center mt-10">
-            <Button asChild className="bg-primary hover:bg-primary-light text-white">
-              <Link href="/services">
-                <a>View All Services</a>
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Who We Serve Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
-            >
-              <h2 className="font-serif font-bold text-3xl md:text-4xl text-primary mb-3">
-                Who We Serve
-              </h2>
-              <AnimatedGradient className="w-24 mx-auto mb-6" />
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Our expertise spans across various business stages and sectors
-              </p>
-            </motion.div>
-          </div>
-
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10"
-            variants={containerAnimation}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true }}
-          >
-            {clientTypes.map((client, index) => (
-              <motion.div 
-                key={index}
-                className="bg-gray-50 rounded-lg p-8 text-center hover:shadow-lg transition duration-300"
-                variants={itemAnimation}
-              >
-                <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6">
-                  <div className="text-secondary">
-                    {client.icon}
-                  </div>
-                </div>
-                <h3 className="font-serif font-semibold text-xl text-primary mb-3">
-                  {client.title}
-                </h3>
-                <p className="text-gray-600">{client.description}</p>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
       </section>
 
       {/* Differentiators Section */}
@@ -264,6 +140,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Partners Section */}
+      <PartnersSection />
 
       {/* Recent Transactions Section */}
       <section className="py-20 bg-white">
@@ -353,7 +232,7 @@ export default function Home() {
                 Ready to Transform Your Financial Future?
               </h2>
               <p className="text-gray-600 mb-8 text-lg">
-                Schedule a consultation with our expert team today and discover how SHC Partners can help your business achieve its financial goals.
+                Schedule a consultation with our expert team today and discover how SHC Growth Partners can help your business achieve its financial goals.
               </p>
               <Button asChild size="lg" className="bg-secondary hover:bg-secondary-dark text-primary font-medium shadow-lg">
                 <Link href="/contact">

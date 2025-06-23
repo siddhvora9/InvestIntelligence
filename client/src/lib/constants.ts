@@ -18,15 +18,13 @@ export const NAV_ITEMS = [
 
 // Address Info
 export const COMPANY_INFO = {
-  name: "SHC Partners",
-  address: "42 Corporate Avenue, Bandra Kurla Complex",
+  name: "SHC Growth Partners",
   city: "Mumbai 400051",
   country: "India",
   phone: "+91 22 4890 2200",
   mobile: "+91 98765 43210",
   email: {
     info: "info@shcpartners.com",
-    deals: "deals@shcpartners.com",
   },
   social: {
     linkedin: "https://linkedin.com",

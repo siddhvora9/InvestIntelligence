@@ -82,23 +82,11 @@ const ContactSection = () => {
               <h2 className="font-playfair font-bold text-3xl md:text-4xl text-primary mb-3">Contact Us</h2>
               <div className="w-20 h-1 gold-gradient rounded-full mb-6"></div>
               <p className="text-gray-600 mb-6">
-                Ready to explore how SHC Partners can help your business? Our team is here to discuss your goals and provide tailored solutions.
+                Ready to explore how SHC Growth Partners can help your business? Our team is here to discuss your goals and provide tailored solutions.
               </p>
             </div>
             
             <div className="space-y-6 mb-8">
-              <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
-                  <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
-                    <MapPin className="h-5 w-5" />
-                  </div>
-                </div>
-                <div className="ml-4">
-                  <h3 className="font-playfair font-semibold text-primary">Our Location</h3>
-                  <p className="text-gray-600">42 Corporate Avenue, Bandra Kurla Complex<br />Mumbai 400051, India</p>
-                </div>
-              </div>
-              
               <div className="flex items-start">
                 <div className="flex-shrink-0 mt-1">
                   <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
@@ -107,7 +95,7 @@ const ContactSection = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="font-playfair font-semibold text-primary">Email Us</h3>
-                  <p className="text-gray-600">info@shcpartners.com<br />deals@shcpartners.com</p>
+                  <p className="text-gray-600">sudip@shcpartners.co.in</p>
                 </div>
               </div>
               
@@ -119,7 +107,7 @@ const ContactSection = () => {
                 </div>
                 <div className="ml-4">
                   <h3 className="font-playfair font-semibold text-primary">Call Us</h3>
-                  <p className="text-gray-600">+91 22 4890 2200<br />+91 98765 43210</p>
+                  <p className="text-gray-600">9158036103</p>
                 </div>
               </div>
             </div>

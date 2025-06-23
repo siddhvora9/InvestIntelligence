@@ -54,8 +54,8 @@ const Footer = () => {
         {/* Logo and info section with special design element */}
         <div className="flex flex-col items-center text-center mb-16">
           <Link href="/" className="inline-block">
-            <span className="text-white font-playfair font-bold text-3xl tracking-tight">
-              SHC <span className="text-secondary">Partners</span>
+            <span className="font-playfair font-bold text-3xl tracking-tight bg-gradient-to-r from-[#793a99] via-[#b62c7f] to-[#ee3f37] text-transparent bg-clip-text">
+              SHC Growth Partners
             </span>
           </Link>
           <div className="h-0.5 w-20 bg-gradient-to-r from-primary to-secondary my-6 rounded-full"></div>
@@ -63,26 +63,26 @@ const Footer = () => {
             Empowering businesses through strategic investment banking solutions, designed for ambitious startups and growing enterprises.
           </p>
           <div className="flex space-x-6">
-            <Link href="https://linkedin.com" className="text-white/70 hover:text-secondary transition-all duration-300 hover:scale-110">
+            <a href="https://www.linkedin.com/company/shc-growth-partners/" className="text-white/70 hover:text-secondary transition-all duration-300 hover:scale-110" target="_blank" rel="noopener noreferrer">
               <div className="bg-white/10 p-2.5 rounded-full hover:bg-white/20">
                 <Linkedin className="h-5 w-5" />
               </div>
-            </Link>
-            <Link href="https://twitter.com" className="text-white/70 hover:text-secondary transition-all duration-300 hover:scale-110">
+            </a>
+            <a href="https://twitter.com" className="text-white/70 hover:text-secondary transition-all duration-300 hover:scale-110" target="_blank" rel="noopener noreferrer">
               <div className="bg-white/10 p-2.5 rounded-full hover:bg-white/20">
                 <Twitter className="h-5 w-5" />
               </div>
-            </Link>
-            <Link href="https://facebook.com" className="text-white/70 hover:text-secondary transition-all duration-300 hover:scale-110">
+            </a>
+            <a href="https://www.facebook.com/share/15PPBx7Pmc/" className="text-white/70 hover:text-secondary transition-all duration-300 hover:scale-110" target="_blank" rel="noopener noreferrer">
               <div className="bg-white/10 p-2.5 rounded-full hover:bg-white/20">
                 <Facebook className="h-5 w-5" />
               </div>
-            </Link>
-            <Link href="https://instagram.com" className="text-white/70 hover:text-secondary transition-all duration-300 hover:scale-110">
+            </a>
+            <a href="https://www.instagram.com/startupholiccatalyst?igsh=MWc5c3dqZHA4bTFyeg==" className="text-white/70 hover:text-secondary transition-all duration-300 hover:scale-110" target="_blank" rel="noopener noreferrer">
               <div className="bg-white/10 p-2.5 rounded-full hover:bg-white/20">
                 <Instagram className="h-5 w-5" />
               </div>
-            </Link>
+            </a>
           </div>
         </div>
 
@@ -153,18 +153,26 @@ const Footer = () => {
                   <span>Transactions</span>
                 </Link>
               </li>
+              
               <li>
-                <Link href="/news" className="text-white/70 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                <Link href="/events" className="text-white/70 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
                   <div className="w-1.5 h-1.5 rounded-full bg-secondary/70 group-hover:bg-accent"></div>
-                  <span>News & Insights</span>
+                  <span>Events</span>
                 </Link>
               </li>
               <li>
-                <Link href="/careers" className="text-white/70 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                <Link href="/blog" className="text-white/70 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
                   <div className="w-1.5 h-1.5 rounded-full bg-secondary/70 group-hover:bg-accent"></div>
-                  <span>Careers</span>
+                  <span>Blog</span>
                 </Link>
               </li>
+              <li>
+                <Link href="/podcast" className="text-white/70 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary/70 group-hover:bg-accent"></div>
+                  <span>Podcast</span>
+                </Link>
+              </li>
+              
               <li>
                 <Link href="/contact" className="text-white/70 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
                   <div className="w-1.5 h-1.5 rounded-full bg-secondary/70 group-hover:bg-accent"></div>
@@ -197,10 +205,36 @@ const Footer = () => {
             </form>
             <div className="bg-gradient-to-br from-white/5 to-white/10 p-4 rounded-lg border border-white/10">
               <p className="text-white/90 text-sm italic">
-                "SHC Partners provided exceptional guidance throughout our fundraising journey, resulting in a successful Series B round."
+                "SHC Growth Partners provided exceptional guidance throughout our fundraising journey, resulting in a successful Series B round."
               </p>
               <p className="text-white/70 text-xs mt-2">— CEO, Tech Startup</p>
             </div>
+          </div>
+
+          {/* Paid Consulting Section */}
+          <div className="lg:col-span-4 md:col-span-1">
+            <h4 className="font-playfair font-semibold text-xl mb-5 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Paid Consulting</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="https://sprect.com/partner/startupholiccatalyst" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary/70 group-hover:bg-accent"></div>
+                  <span>Startupholic Catalyst & SHC Growth Partners</span>
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Community Section */}
+          <div className="lg:col-span-4 md:col-span-1">
+            <h4 className="font-playfair font-semibold text-xl mb-5 bg-clip-text text-transparent bg-gradient-to-r from-white to-white/80">Community</h4>
+            <ul className="space-y-3">
+              <li>
+                <a href="https://nas.io/indian-startup-tech-product-4-vljp" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-accent transition-all duration-300 flex items-center gap-2 group">
+                  <div className="w-1.5 h-1.5 rounded-full bg-secondary/70 group-hover:bg-accent"></div>
+                  <span>SHC Founders Community (nas.io)</span>
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -208,7 +242,7 @@ const Footer = () => {
         <div className="border-t border-white/10 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-white/60 text-sm mb-4 md:mb-0">
-              © {new Date().getFullYear()} SHC Partners. All rights reserved.
+              © {new Date().getFullYear()} SHC Growth Partners. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center md:justify-end gap-6">
               <Link href="/privacy-policy" className="text-white/60 hover:text-secondary text-sm transition duration-300">

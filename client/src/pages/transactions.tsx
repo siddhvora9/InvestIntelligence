@@ -1,24 +1,45 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import AnimatedGradient from "@/components/ui/animated-gradient";
-import { transactionData } from "@/data/transactions";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Search, ChevronRight, ChevronLeft } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
-// Get unique industries from transaction data
-const industries = [...new Set(transactionData.map(t => t.industry))];
-// Get unique transaction types
-const transactionTypes = [...new Set(transactionData.map(t => t.type))];
+import { dealsAPI } from "@/services/api";
 
 export default function Transactions() {
+  const [transactionData, setTransactionData] = useState<any[]>([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [selectedType, setSelectedType] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const transactionsPerPage = 6;
+
+  useEffect(() => {
+    const fetchDeals = async () => {
+      try {
+        const deals = await dealsAPI.getAll();
+        const mapped = deals.map((deal: any) => ({
+          image: 'https://via.placeholder.com/150',
+          type: deal.type || 'N/A',
+          company: deal.company || '',
+          amount: deal.amount ? `$${Number(deal.amount).toLocaleString()}` : 'N/A',
+          description: deal.description || '',
+          industry: deal.industry || '',
+          date: deal.deadline ? new Date(deal.deadline).toLocaleDateString() : '',
+        }));
+        setTransactionData(mapped);
+      } catch (error) {
+        setTransactionData([]);
+      }
+    };
+    fetchDeals();
+  }, []);
+
+  // Get unique industries and types from live data
+  const industries = Array.from(new Set(transactionData.map(t => t.industry)));
+  const transactionTypes = Array.from(new Set(transactionData.map(t => t.type)));
 
   // Filter transactions based on search and filters
   const filteredTransactions = transactionData.filter(transaction => {

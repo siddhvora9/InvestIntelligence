@@ -1,112 +1,80 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Linkedin, Twitter, MailIcon } from 'lucide-react';
+import { Building2, Mic, Network, Scale, Users } from 'lucide-react';
 import { fadeIn, staggerContainer } from '@/lib/animations';
 
-const teamMembers = [
-  {
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Rajiv Mehta',
-    position: 'Managing Director',
-    bio: '15+ years in investment banking with expertise in growth-stage funding and strategic M&A'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Priya Sharma',
-    position: 'Director, Debt Advisory',
-    bio: 'Former banker with specialized knowledge in structured debt and working capital solutions'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Aditya Kapoor',
-    position: 'Vice President, Valuations',
-    bio: 'Expert in business valuations and financial modeling with a focus on technology and SaaS'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Neha Desai',
-    position: 'Head of Strategic Advisory',
-    bio: 'Specializes in M&A advisory and strategic growth for family-owned businesses'
-  }
+const partners = [
+  { name: "Astrafin", category: "Lending & Asset Leasing", logo: "/assets/Astrafin.jpeg", website: "https://astrafin.org/" },
+  { name: "FinnUp", category: "Lending & Debt Marketplace", logo: "/assets/FinnUp.jpeg", website: "https://finnup.in/" },
+  { name: "Recur Club", category: "Lending", logo: "/assets/Recur.jpeg", bg: "black", website: "https://www.recurclub.com/" },
+  { name: "Trove Capital", category: "NBFC & Account Aggregator (AA) Consulting", logo: "/assets/Trove Capital.jpeg", website: "https://www.trovecapital.in/" },
+  { name: "Lemon Fund", category: "Investment", logo: "/assets/Lemon Fundz.jpeg", bg: "black", website: "" },
+  { name: "Impactful Pitch", category: "Consulting & Investment Banking", logo: "/assets/Impactful Pitch.jpg", website: "https://www.impactfulpitch.com/" },
+  { name: "Vyapaar Network", category: "Business & Marketing", logo: "/assets/Vyapaar Network.jpeg", website: "https://vyapaar.net/" },
+  { name: "Acme Group", category: "Venture Capital & Private Equity", logo: "/assets/Acme Group.jpeg", website: "https://acmegroup.co.in/" },
+  { name: "Tax Diva Consulting", category: "Consulting & Auditing", logo: "/assets/TaxDiva.jpeg", website: "https://www.taxdiva.co.in/" },
+  { name: "Vetan Now", category: "Fintech & Lending", logo: "/assets/VetanNow.jpeg", website: "" },
+  { name: "Social Symphony", category: "Podcast & Media", logo: "/assets/Social Symphony.jpeg", subtext: "Podcast", website: "https://www.soccialsymphony.com/" },
+  { name: "Optimix Advisors", category: "Investment Banking & Consulting", logo: "/assets/placeholder.png", website: "http://optimixadvisors.com/" },
+  { name: "Enqube Collaboration", category: "Community Building", logo: "/assets/Enqube.jpeg", website: "https://enqube.in/" },
+  { name: "Blueprint Legal", category: "Legal & Compliance", logo: "/assets/Blueprint Legal.jpeg", website: "http://blueprintlegal.org/" },
+  { name: "Hobby Tribe", category: "Community Partner", logo: "/assets/Hobby Tribe.jpeg", website: "https://www.thehobbytribe.com/" },
+  { name: "Ivy Growth Associates", category: "Investment", logo: "/assets/IVY Growth Associates.jpeg", website: "https://ivygrowth.co.in/" },
+  { name: "Kennis Group", category: "IB & Consulting", logo: "/assets/Kennis Growth Limitless.jpeg", bg: "black", website: "https://www.kennis.in/" },
+  { name: "Growth Cap Ventures", category: "Investment", logo: "/assets/GrowthCap VC.jpeg", bg: "black", website: "https://growthcap.vc/" },
+  { name: "The Builder Club", category: "Community Partner", logo: "/assets/The Builders Club.jpeg", website: "https://thebuildersclub.me/" },
+  { name: "Startupnews.fyi", category: "Media Partner", logo: "/assets/Startup FYI.jpeg", website: "https://startupnews.fyi/" },
 ];
 
-const TeamSection = () => {
+const PartnersSection = () => {
   return (
-    <section id="team" className="py-20 bg-gray-50">
+    <section id="partners" className="py-20 bg-gradient-to-br from-primary/10 to-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="text-center mb-12"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="font-playfair font-bold text-3xl md:text-4xl text-primary mb-3">Our Team</h2>
+        <div className="text-center mb-12">
+          <h2 className="font-playfair font-bold text-3xl md:text-4xl text-primary mb-3">Our Partners</h2>
           <div className="w-24 h-1 gold-gradient rounded-full mx-auto mb-6"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto">Meet our experienced professionals dedicated to your success</p>
-        </motion.div>
-        
-        <motion.div 
-          variants={staggerContainer}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, amount: 0.25 }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-        >
-          {teamMembers.map((member, index) => (
-            <motion.div
+          <p className="text-gray-700 max-w-2xl mx-auto">Strategic alliances that strengthen our ecosystem and enhance value for our clients</p>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+          {partners.slice(0, 8).map((partner, index) => (
+            <div
               key={index}
-              variants={fadeIn('up', 'spring', index * 0.1, 0.75)}
-              className="bg-white rounded-lg shadow-lg overflow-hidden group"
+              className="bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100 flex flex-col items-center p-6 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+              onClick={() => window.open(partner.website, '_blank')}
             >
-              <div className="relative overflow-hidden">
-                <img 
-                  src={member.image} 
-                  alt={member.name} 
-                  className="w-full h-72 object-cover object-center transition duration-500 group-hover:scale-105"
+              <div className={`w-24 h-24 mb-4 flex items-center justify-center rounded-full overflow-hidden border border-gray-200 transition-colors duration-300 ${partner.bg === 'black' ? 'bg-black' : 'bg-gray-50'}`}> 
+                <img
+                  src={partner.logo}
+                  alt={partner.name + ' logo'}
+                  className="w-full h-full object-contain"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/80 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
-                  <div className="flex space-x-4">
-                    <a href="#" className="text-white hover:text-secondary transition duration-300">
-                      <Linkedin className="h-6 w-6" />
-                    </a>
-                    <a href="#" className="text-white hover:text-secondary transition duration-300">
-                      <Twitter className="h-6 w-6" />
-                    </a>
-                    <a href="#" className="text-white hover:text-secondary transition duration-300">
-                      <MailIcon className="h-6 w-6" />
-                    </a>
-                  </div>
-                </div>
               </div>
-              <div className="p-6 text-center">
-                <h3 className="font-playfair font-semibold text-xl text-primary mb-1">{member.name}</h3>
-                <p className="text-secondary font-medium mb-3">{member.position}</p>
-                <p className="text-gray-600 text-sm">{member.bio}</p>
+              <div className="flex-1 flex flex-col items-center justify-center">
+                <h3 className="font-playfair font-semibold text-lg text-primary text-center mb-1 group-hover:text-primary/80 transition-colors duration-300">
+                  {partner.name}
+                </h3>
+                {partner.subtext && (
+                  <p className="text-secondary text-center text-xs mb-1">{partner.subtext}</p>
+                )}
+                <p className="text-gray-500 text-center text-xs font-medium">{partner.category}</p>
               </div>
-            </motion.div>
+            </div>
           ))}
-        </motion.div>
-        
-        <motion.div 
-          className="text-center mt-10"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-        >
+        </div>
+        <div className="text-center mt-10">
           <Button 
             asChild
             className="bg-primary hover:bg-primary/90 text-white font-medium"
             size="lg"
           >
-            <Link href="/team">Meet Our Full Team</Link>
+            <Link href="/team">View All Partners</Link>
           </Button>
-        </motion.div>
+        </div>
       </div>
     </section>
   );
 };
 
-export default TeamSection;
+export default PartnersSection;

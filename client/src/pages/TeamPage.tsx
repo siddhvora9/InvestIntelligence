@@ -1,65 +1,91 @@
 import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
-import { Linkedin, Twitter, MailIcon } from 'lucide-react';
+import { Linkedin, Twitter, MailIcon, Building2, Mic, Network, Scale, Users } from 'lucide-react';
 import { fadeIn, staggerContainer } from '@/lib/animations';
+
+const partners = [
+  { name: "Astrafin", category: "Lending & Asset Leasing", logo: "/assets/Astrafin.jpeg", website: "https://astrafin.org/" },
+  { name: "FinnUp", category: "Lending & Debt Marketplace", logo: "/assets/FinnUp.jpeg", website: "https://finnup.in/" },
+  { name: "Recur Club", category: "Lending", logo: "/assets/Recur.jpeg", bg: "black", website: "https://www.recurclub.com/" },
+  { name: "Trove Capital", category: "NBFC & Account Aggregator (AA) Consulting", logo: "/assets/Trove Capital.jpeg", website: "https://www.trovecapital.in/" },
+  { name: "Lemon Fund", category: "Investment", logo: "/assets/Lemon Fundz.jpeg", bg: "black", website: "" },
+  { name: "Impactful Pitch", category: "Consulting & Investment Banking", logo: "/assets/Impactful Pitch.jpg", website: "https://www.impactfulpitch.com/" },
+  { name: "Vyapaar Network", category: "Business & Marketing", logo: "/assets/Vyapaar Network.jpeg", website: "https://vyapaar.net/" },
+  { name: "Acme Group", category: "Venture Capital & Private Equity", logo: "/assets/Acme Group.jpeg", website: "https://acmegroup.co.in/" },
+  { name: "Tax Diva Consulting", category: "Consulting & Auditing", logo: "/assets/TaxDiva.jpeg", website: "https://www.taxdiva.co.in/" },
+  { name: "Vetan Now", category: "Fintech & Lending", logo: "/assets/VetanNow.jpeg", website: "" },
+  { name: "Social Symphony", category: "Podcast & Media", logo: "/assets/Social Symphony.jpeg", subtext: "Podcast", website: "https://www.soccialsymphony.com/" },
+  { name: "Optimix Advisors", category: "Investment Banking & Consulting", logo: "/assets/Optimix_Advisors.png", website: "http://optimixadvisors.com/" },
+  { name: "Enqube Collaboration", category: "Community Building", logo: "/assets/Enqube.jpeg", website: "https://enqube.in/" },
+  { name: "Blueprint Legal", category: "Legal & Compliance", logo: "/assets/Blueprint Legal.jpeg", website: "http://blueprintlegal.org/" },
+  { name: "Hobby Tribe", category: "Community Partner", logo: "/assets/Hobby Tribe.jpeg", website: "https://www.thehobbytribe.com/" },
+  { name: "Ivy Growth Associates", category: "Investment", logo: "/assets/IVY Growth Associates.jpeg", website: "https://ivygrowth.co.in/" },
+  { name: "Kennis Group", category: "IB & Consulting", logo: "/assets/Kennis Growth Limitless.jpeg", bg: "black", website: "https://www.kennis.in/" },
+  { name: "Growth Cap Ventures", category: "Investment", logo: "/assets/GrowthCap VC.jpeg", bg: "black", website: "https://growthcap.vc/" },
+  { name: "The Builder Club", category: "Community Partner", logo: "/assets/The Builders Club.jpeg", website: "https://thebuildersclub.me/" },
+  { name: "Startupnews.fyi", category: "Media Partner", logo: "/assets/Startup FYI.jpeg", website: "https://startupnews.fyi/" },
+];
 
 const leadershipTeam = [
   {
-    image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Rajiv Mehta',
-    position: 'Managing Director',
-    bio: '15+ years in investment banking with expertise in growth-stage funding and strategic M&A. Prior to founding SHC Partners, Rajiv held senior positions at global investment banks where he led numerous high-profile transactions.',
+    image: '/assets/Sudip_Mondal.jpeg',
+    name: 'Sudip Mondal',
+    position: 'Founder',
+    bio: '*Sudip Mondal* is the Founder of *SHC Growth Partners* and *Startupholic Catalyst, a seasoned investment banker and fintech specialist with over a decade of experience in lending, credit risk, and startup ecosystems. An alumnus of **St. Xavier\'s College, Kolkata, and a management graduate with advanced credentials from **IIM Kozhikode*, he also serves as a visiting faculty at leading MBA institutes, bringing practical finance and entrepreneurship insights into the classroom. Sudip is a passionate community builder, mentor to early-stage startups, and host of engaging podcasts focused on innovation, capital, and ecosystem growth. His work bridges finance, education, and impact-driven entrepreneurship with a sharp focus on empowering founders and enabling sustainable growth.',
     linkedin: '#',
     twitter: '#',
-    email: 'rajiv@shcpartners.com'
-  },
-  {
-    image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Priya Sharma',
-    position: 'Director, Debt Advisory',
-    bio: 'Former banker with specialized knowledge in structured debt and working capital solutions. Priya has facilitated over ₹500 crores in debt financing across various sectors, helping businesses optimize their capital structure.',
-    linkedin: '#',
-    twitter: '#',
-    email: 'priya@shcpartners.com'
+    email: 'sudip@shcpartners.com'
   }
 ];
 
 const seniorTeam = [
   {
-    image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Aditya Kapoor',
-    position: 'Vice President, Valuations',
-    bio: 'Expert in business valuations and financial modeling with a focus on technology and SaaS companies. Certified valuation analyst with experience across multiple industries.',
+    image: '/assets/Dr Narendra Mairpady.jpeg',
+    name: 'Dr. Narendra M. Maripady',
+    position: 'Head of Advisors',
+    subtitle: 'Former Chairman & Managing Director, Indian Overseas Bank',
+    bio: 'Dr. Narendra M. Maripady is a seasoned banking professional with over four decades of distinguished leadership in the Indian financial sector. As the former Chairman & Managing Director of Indian Overseas Bank, he was instrumental in steering the bank through critical phases of growth, transformation, and regulatory alignment. His leadership focused on financial inclusion, institutional strengthening, and operational efficiency. Beyond his stellar banking career, Dr. Maripady serves as an Independent Director and Board Advisor to several leading corporations, where he brings deep expertise in governance, risk management, and financial strategy. His board associations include Man Industries (India) Ltd., Ipca Laboratories Ltd., Kesar Enterprises Ltd., and Equippp Social Impact Technologies Ltd. Known for his ethical governance and strategic foresight, Dr. Maripady continues to play a vital role in shaping the future of Indian enterprise through boardroom leadership and advisory excellence.',
     linkedin: '#',
     twitter: '#',
-    email: 'aditya@shcpartners.com'
+    email: 'narendra@shcpartners.com'
   },
   {
-    image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Neha Desai',
-    position: 'Head of Strategic Advisory',
-    bio: 'Specializes in M&A advisory and strategic growth for family-owned businesses. Extensive experience in cross-border transactions and business transformations.',
+    image: '/assets/CA Parimal Seth.jpeg',
+    name: 'CA Parimal Sheth',
+    position: 'Senior Advisor',
+    subtitle: 'Investment Banker & Strategic Management Advisor',
+    quote: 'A true Entrepreneur is a go-getter and not a fantast……set your goals, have conviction in your business model and the best will follow you.',
+    bio: 'Mr. Parimal Sheth is a Chartered Accountant & an Investment Banker with more than 30 years of experience in Corporate Finance & Investment Banking having executed many mid & large ticket transactions in Private Equity, VC funding & Debt across sectors. He also have extensive knowledge in International Finance and Cross Border M&A having spearheaded many M&A transactions of various corporate across sectors. He is well-networked with large number of Corporates, Institutional Funds, PE\'s, VC\'s & Family offices on a pan-India level having created a strong eco-system of providing various Financial & Investment Banking services to them. He also assists corporates in making them IPO ready and list them on SME or Main Board platforms. He also mentors & invests in Startups and SME companies and provides Management and Strategic Inputs to Start-ups and Mid-sized corporates including arranging growth capital for them. Has been part of many start-up forums and Angel Networks. Being a seasoned professional, Parimal brings with him excellent networking skills best suited to the financial services sector. He was titled as one of the "100 Top Most Influential BFSI Leaders" for past 3 years by ET Now and the World BFSI Congress. He has also been awarded the "Most Talented Marketing Professional in the Financial Services Sector" by World Marketing Congress & CMO Asia. He has been a regular participant at various business forums viz; CII, ASSOCHAM, FICCI, IMC, JITO, IACC, JCAF, Gitanjali Express, etc. He has also been associated with premier Education colleges such as Durga Devi Saraf Institute of Management Studies, NMIMS, MET in Mumbai. An avid learner, Parimal is also a speaker at various platforms, Business Forums and Educational Institutes.',
     linkedin: '#',
     twitter: '#',
-    email: 'neha@shcpartners.com'
+    email: 'parimal@shcpartners.com'
   },
   {
-    image: 'https://images.unsplash.com/photo-1564564321837-a57b7070ac4f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Vikram Singh',
-    position: 'Senior Associate, Equity',
-    bio: 'Focused on early-stage funding and venture capital relationships. Previously worked at a leading startup accelerator, guiding numerous companies through successful fundraising rounds.',
+    image: '/assets/CA_Dr_Das_Shyamsundar.jpeg',
+    name: 'CA Dr. Das Shyamsundar',
+    position: 'Senior Advisor',
+    bio: 'Chartered Accountant, Registered Valuer, Social Auditor, Forensic Auditor, PhD (Economics), M Phil (Economics), MBA (Finance), MA (Economics), MA (Criminal Laws & Forensic Science) DISA (IIBF), FAFD (ICAI), IBBI RV - SFA. Has a diverse educational background in finance, economics and business management, having attained a Chartered Accountant qualification, a PhD in economics, an MBA in finance and an MPhil in economics. Moreover, he holds certifications in DISA and Insolvency and Bankruptcy Board of India (IBBI) Registered Valuer (SFA). He has gained extensive experience in academia, research and consulting in the areas of finance, accounting, economics and management. Currently, he holds the position of Director at MET Institute of PGDM, which ranks 4th among the top private institutes in Mumbai.',
     linkedin: '#',
     twitter: '#',
-    email: 'vikram@shcpartners.com'
+    email: 'dasshyamsundar@shcpartners.com'
   },
   {
-    image: 'https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
-    name: 'Ananya Patel',
-    position: 'Associate Director, Research',
-    bio: 'Leads our market research and industry analysis team. MBA from a top-tier institution with background in economic research and financial analysis.',
+    image: '/assets/Balakrishnan_Iyer.jpeg',
+    name: 'Balakrishnan Iyer',
+    position: 'Senior Advisor',
+    bio: 'A Company Secretary with over 15 years of experience in the area of Investment Banking Fund Raising – Through Public Issues and Private Equity, Debt Syndication & Documentation for Debt Raising, Corporate Advisory, M&A, Open Offers and Buybacks, Joint Ventures, setting up AIFs- Domestic and Gift City. In addition to the above, also been quite active in Corporate Law and SEBI Related Due Diligences and have been a part of Valuation exercises for over 800 Companies across various sectors and geographies. With respect to Debt Syndication, have been part of transactions of raising debt of over 1000 Crores.',
     linkedin: '#',
     twitter: '#',
-    email: 'ananya@shcpartners.com'
+    email: 'balakrishnan@shcpartners.com'
+  },
+  {
+    image: '/assets/Winston_Pinto.jpeg',
+    name: 'Winston Pinto',
+    position: 'Senior Advisor',
+    bio: 'Brings over 14 years of experience across the Indian market. Known for his belief in value creation and transformative change, he has consistently driven business growth across sectors. His approach blends agility, customer-centricity, and sharp business problem-solving to deliver scalable outcomes often through innovative leasing, debt, and B2B financing structures. With a strong foundation in business and leadership from IIMA, Winston focuses on collaboration and long-term impact. He is widely regarded as a trusted advisor and thought leader in India\'s evolving financial landscape.',
+    linkedin: '#',
+    twitter: '#',
+    email: 'winston@shcpartners.com'
   }
 ];
 
@@ -67,7 +93,7 @@ const TeamPage = () => {
   return (
     <>
       <Helmet>
-        <title>Our Team | SHC Partners</title>
+        <title>Our Team | SHC Growth Partners</title>
         <meta name="description" content="Meet our experienced team of investment banking professionals dedicated to your business success." />
       </Helmet>
 
@@ -95,6 +121,53 @@ const TeamPage = () => {
         </div>
       </section>
 
+      {/* Partners Grid Section */}
+      <section className="py-20 bg-gradient-to-br from-primary/10 to-white">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="font-playfair font-bold text-3xl md:text-4xl text-primary mb-3">Our Partners</h2>
+            <div className="w-24 h-1 gold-gradient rounded-full mx-auto mb-6"></div>
+            <p className="text-gray-700 max-w-3xl mx-auto">
+              Strategic alliances that strengthen our ecosystem and enhance value for our clients
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {partners.map((partner, index) => (
+              <div
+                key={index}
+                className="bg-white/70 backdrop-blur-md rounded-2xl shadow-lg border border-gray-100 flex flex-col items-center p-6 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+                onClick={() => window.open(partner.website, '_blank')}
+              >
+                <div className={`w-24 h-24 mb-4 flex items-center justify-center rounded-full overflow-hidden border border-gray-200 transition-colors duration-300 ${partner.bg === 'black' ? 'bg-black' : 'bg-gray-50'}`}>
+                  <img
+                    src={partner.logo}
+                    alt={partner.name + ' logo'}
+                    className="w-full h-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="flex-1 flex flex-col items-center justify-center">
+                  <h3 className="font-playfair font-semibold text-lg text-primary text-center mb-1 group-hover:text-primary/80 transition-colors duration-300">
+                    {partner.name}
+                  </h3>
+                  {partner.subtext && (
+                    <p className="text-secondary text-center text-xs mb-1">{partner.subtext}</p>
+                  )}
+                  <p className="text-gray-500 text-center text-xs font-medium">{partner.category}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Team Values */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -108,7 +181,7 @@ const TeamPage = () => {
             <h2 className="font-playfair font-bold text-3xl md:text-4xl text-primary mb-3">Our Collective Expertise</h2>
             <div className="w-24 h-1 gold-gradient rounded-full mx-auto mb-6"></div>
             <p className="text-gray-700">
-              At SHC Partners, our team is our greatest asset. With backgrounds spanning global financial institutions, startups, and industry-specific expertise, we bring together diverse perspectives united by a common purpose: your success.
+              At SHC Growth Partners, our team is our greatest asset. With backgrounds spanning global financial institutions, startups, and industry-specific expertise, we bring together diverse perspectives united by a common purpose: your success.
             </p>
           </motion.div>
 
@@ -198,32 +271,32 @@ const TeamPage = () => {
               <motion.div
                 key={index}
                 variants={fadeIn('up', 'spring', index * 0.1, 0.75)}
-                className="bg-white rounded-lg shadow-lg overflow-hidden group"
+                className="bg-gray-50 rounded-lg shadow-lg overflow-hidden group"
               >
-                <div className="md:flex">
-                  <div className="md:flex-shrink-0 md:w-1/3 relative overflow-hidden">
+                <div className="relative overflow-hidden">
                     <img 
                       src={member.image} 
                       alt={member.name} 
-                      className="w-full h-full object-cover object-center md:h-full transition duration-500 group-hover:scale-105"
+                    className="w-full h-72 object-cover object-center transition duration-500 group-hover:scale-105"
                     />
-                  </div>
-                  <div className="p-8 md:w-2/3">
-                    <h3 className="font-playfair font-semibold text-2xl text-primary mb-1">{member.name}</h3>
-                    <p className="text-secondary font-medium mb-4">{member.position}</p>
-                    <p className="text-gray-700 mb-6">{member.bio}</p>
-                    <div className="flex items-center space-x-4">
-                      <a href={member.linkedin} className="text-primary hover:text-secondary transition duration-300">
-                        <Linkedin className="h-5 w-5" />
+                  <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/80 transition-all duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100">
+                    <div className="flex space-x-4">
+                      <a href={member.linkedin} className="text-white hover:text-secondary transition duration-300">
+                        <Linkedin className="h-6 w-6" />
                       </a>
-                      <a href={member.twitter} className="text-primary hover:text-secondary transition duration-300">
-                        <Twitter className="h-5 w-5" />
+                      <a href={member.twitter} className="text-white hover:text-secondary transition duration-300">
+                        <Twitter className="h-6 w-6" />
                       </a>
-                      <a href={`mailto:${member.email}`} className="text-primary hover:text-secondary transition duration-300">
-                        <MailIcon className="h-5 w-5" />
+                      <a href={`mailto:${member.email}`} className="text-white hover:text-secondary transition duration-300">
+                        <MailIcon className="h-6 w-6" />
                       </a>
                     </div>
                   </div>
+                </div>
+                <div className="p-6">
+                  <h3 className="font-playfair font-semibold text-xl text-primary mb-1">{member.name}</h3>
+                  <p className="text-secondary font-medium mb-3">{member.position}</p>
+                  <p className="text-gray-700 text-sm">{member.bio}</p>
                 </div>
               </motion.div>
             ))}
@@ -253,7 +326,7 @@ const TeamPage = () => {
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.25 }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {seniorTeam.map((member, index) => (
               <motion.div
@@ -283,8 +356,16 @@ const TeamPage = () => {
                 </div>
                 <div className="p-6">
                   <h3 className="font-playfair font-semibold text-xl text-primary mb-1">{member.name}</h3>
-                  <p className="text-secondary font-medium mb-3">{member.position}</p>
-                  <p className="text-gray-700 text-sm">{member.bio}</p>
+                  <p className="text-secondary font-medium mb-2">{member.position}</p>
+                  {member.subtitle && (
+                    <p className="text-gray-600 font-medium mb-3 italic text-sm">{member.subtitle}</p>
+                  )}
+                  {member.quote && (
+                    <div className="bg-secondary/10 border-l-4 border-secondary p-3 mb-3 rounded-r-lg">
+                      <p className="text-gray-700 italic text-xs">"{member.quote}"</p>
+                    </div>
+                  )}
+                  <p className="text-gray-700 text-sm leading-relaxed">{member.bio}</p>
                 </div>
               </motion.div>
             ))}

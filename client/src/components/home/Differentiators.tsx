@@ -4,17 +4,17 @@ import { fadeIn, staggerContainer } from '@/lib/animations';
 
 const differentiators = [
   {
-    icon: <Lightbulb className="h-12 w-12" />,
+    icon: <Lightbulb className="h-8 w-8 text-white" />,
     title: 'Deep Industry Experience',
     description: 'Our team brings decades of frontline deal-making and transaction experience, providing you with insights that go beyond textbook solutions.'
   },
   {
-    icon: <Users className="h-12 w-12" />,
+    icon: <Users className="h-8 w-8 text-white" />,
     title: 'Extensive Network',
     description: 'Tap into our relationships with investors, financial institutions, and corporate leaders to unlock opportunities that others might miss.'
   },
   {
-    icon: <Target className="h-12 w-12" />,
+    icon: <Target className="h-8 w-8 text-white" />,
     title: 'Tailored Approach',
     description: 'Every solution we offer is shaped around your unique business challenges and goals, not forced into a one-size-fits-all template.'
   }
@@ -47,13 +47,15 @@ const Differentiators = () => {
             <motion.div
               key={index}
               variants={fadeIn('up', 'spring', index * 0.1, 0.6)}
-              className="bg-white/5 backdrop-blur-sm rounded-lg p-8 hover:bg-white/10 transition duration-300"
+              className="bg-white/10 backdrop-blur-md rounded-2xl p-8 flex flex-col items-start hover:bg-white/20 transition duration-300 shadow-lg"
             >
-              <div className="text-secondary mb-4">
-                {item.icon}
+              <div className="flex items-center mb-4 pl-6">
+                <div className="w-14 h-14 rounded-full bg-white bg-opacity-20 flex items-center justify-center mr-4">
+                  {item.icon}
+                </div>
+                <h3 className="font-playfair font-bold text-xl text-white mb-0 tracking-tight">{item.title}</h3>
               </div>
-              <h3 className="font-playfair font-semibold text-xl text-white mb-3">{item.title}</h3>
-              <p className="text-white/80">{item.description}</p>
+              <p className="text-white/80 pl-6">{item.description}</p>
             </motion.div>
           ))}
         </motion.div>

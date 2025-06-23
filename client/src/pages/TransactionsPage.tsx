@@ -2,9 +2,21 @@ import { motion } from 'framer-motion';
 import { Helmet } from 'react-helmet';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { fadeIn, staggerContainer } from '@/lib/animations';
+import { useEffect, useState } from 'react';
+import { dealsAPI } from '@/services/api';
+import { Input } from "@/components/ui/input";
+import { Search } from "lucide-react";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
-// Transaction data
-const allTransactions = [
+const TransactionsPage = () => {
+  const [allTransactions, setAllTransactions] = useState<any[]>([]);
+  const [liveDeals, setLiveDeals] = useState<any[]>([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedIndustry, setSelectedIndustry] = useState("all-industries");
+  const [selectedType, setSelectedType] = useState("all-types");
+
+  // Add back the sample deals array
+  const sampleDeals = [
   {
     category: 'equity',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80',
@@ -87,11 +99,46 @@ const allTransactions = [
   }
 ];
 
-const TransactionsPage = () => {
+  useEffect(() => {
+    const fetchDeals = async () => {
+      try {
+        const deals = await dealsAPI.getAll();
+        const mapped = deals.map((deal: any) => ({
+          category: deal.type || 'N/A',
+          image: 'https://via.placeholder.com/150',
+          type: deal.type || 'N/A',
+          company: deal.company || '',
+          amount: deal.amount ? `$${Number(deal.amount).toLocaleString()}` : 'N/A',
+          description: deal.description || '',
+          industry: deal.industry || '',
+          date: deal.deadline ? new Date(deal.deadline).toLocaleDateString() : '',
+        }));
+        setAllTransactions([...sampleDeals, ...mapped]);
+        setLiveDeals(mapped);
+        console.log('Live allTransactions:', [...sampleDeals, ...mapped]);
+      } catch (error) {
+        setAllTransactions([...sampleDeals]);
+        setLiveDeals([]);
+      }
+    };
+    fetchDeals();
+  }, []);
+
+  // Filters for live deals
+  const liveIndustries = Array.from(new Set(liveDeals.map(t => t.industry)));
+  const liveTypes = Array.from(new Set(liveDeals.map(t => t.type)));
+  const filteredLiveDeals = liveDeals.filter(deal => {
+    const matchesSearch = deal.company.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      deal.description.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesIndustry = selectedIndustry === "all-industries" || deal.industry === selectedIndustry;
+    const matchesType = selectedType === "all-types" || deal.type === selectedType;
+    return matchesSearch && matchesIndustry && matchesType;
+  });
+
   return (
     <>
       <Helmet>
-        <title>Recent Transactions | SHC Partners</title>
+        <title>Recent Transactions | SHC Growth Partners</title>
         <meta name="description" content="Explore our portfolio of successful transactions across various industries. From equity funding to strategic acquisitions, view our track record." />
       </Helmet>
 
@@ -168,6 +215,72 @@ const TransactionsPage = () => {
         </div>
       </section>
 
+      {/* Live Deals Section */}
+      <section className="py-16 md:py-24 bg-gray-50">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="font-playfair font-bold text-3xl md:text-4xl text-primary mb-3">Live Deals</h2>
+            <div className="w-24 h-1 gold-gradient rounded-full mx-auto mb-6"></div>
+            <p className="text-gray-700 max-w-3xl mx-auto">
+              Explore our currently active and recent deals, updated live from our admin panel.
+            </p>
+          </motion.div>
+
+          {/* Filters for live deals */}
+          <div className="mb-12">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div className="relative">
+                <Input
+                  type="text"
+                  placeholder="Search live deals..."
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="pl-10"
+                />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" size={18} />
+              </div>
+              <Select
+                value={selectedIndustry}
+                onValueChange={(value) => setSelectedIndustry(value)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Filter by industry" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all-industries">All Industries</SelectItem>
+                  {liveIndustries.map((industry, index) => (
+                    <SelectItem key={index} value={industry || `industry-${index}`}>{industry || "Other"}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+              <Select
+                value={selectedType}
+                onValueChange={(value) => setSelectedType(value)}
+              >
+                <SelectTrigger>
+                  <SelectValue placeholder="Filter by deal type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="all-types">All Types</SelectItem>
+                  {liveTypes.map((type, index) => (
+                    <SelectItem key={index} value={type || `type-${index}`}>{type || "Other"}</SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          {/* Live Deals Grid */}
+          <TransactionGrid transactions={filteredLiveDeals} />
+        </div>
+      </section>
+
       {/* Statistics Section */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -220,7 +333,18 @@ const TransactionsPage = () => {
   );
 };
 
-const TransactionGrid = ({ transactions }) => {
+interface Transaction {
+  category: string;
+  image: string;
+  type: string;
+  company: string;
+  amount: string;
+  description: string;
+  industry: string;
+  date: string;
+}
+
+const TransactionGrid = ({ transactions }: { transactions: Transaction[] }) => {
   return (
     <motion.div 
       variants={staggerContainer}
@@ -229,7 +353,7 @@ const TransactionGrid = ({ transactions }) => {
       viewport={{ once: true, amount: 0.25 }}
       className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
     >
-      {transactions.map((transaction, index) => (
+      {transactions.map((transaction: Transaction, index: number) => (
         <motion.div
           key={index}
           variants={fadeIn('up', 'spring', index * 0.1, 0.75)}

@@ -12,8 +12,8 @@ const HomePage = () => {
   return (
     <>
       <Helmet>
-        <title>SHC Partners | Investment Banking Solutions</title>
-        <meta name="description" content="SHC Partners delivers strategic investment banking solutions, designed for India's ambitious startups and growing enterprises." />
+        <title>SHC Growth Partners | Investment Banking Solutions</title>
+        <meta name="description" content="SHC Growth Partners delivers strategic investment banking solutions, designed for India's ambitious startups and growing enterprises." />
       </Helmet>
       <Hero />
       <WhoWeAre />

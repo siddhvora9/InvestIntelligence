@@ -8,8 +8,8 @@ const AboutPage = () => {
   return (
     <>
       <Helmet>
-        <title>About Us | SHC Partners</title>
-        <meta name="description" content="Learn about SHC Partners, a boutique investment banking firm dedicated to helping businesses grow financially, strategically, and sustainably." />
+        <title>About Us | SHC Growth Partners</title>
+        <meta name="description" content="Learn about SHC Growth Partners, a boutique investment banking firm dedicated to helping businesses grow financially, strategically, and sustainably." />
       </Helmet>
 
       {/* Hero Section */}
@@ -40,7 +40,7 @@ const AboutPage = () => {
               </div>
               
               <h1 className="text-white font-playfair font-bold text-4xl md:text-5xl lg:text-6xl leading-tight mb-6">
-                About <span className="text-accent">SHC Partners</span>
+                About <span className="text-[#793a99]">SHC</span> <span className="text-[#b62c7f]">Growth</span> <span className="text-[#ee3f37]">Partners</span>
               </h1>
               
               <div className="h-1 w-20 bg-gradient-to-r from-primary to-secondary rounded-full my-8"></div>
@@ -61,7 +61,7 @@ const AboutPage = () => {
                 <div className="bg-white/5 backdrop-blur-sm p-6 rounded-xl border border-white/10 shadow-xl relative z-10">
                   <img 
                     src={aboutIllustration} 
-                    alt="SHC Partners" 
+                    alt="SHC Growth Partners" 
                     className="w-full h-auto rounded"
                   />
                 </div>
@@ -95,7 +95,7 @@ const AboutPage = () => {
               <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary rounded-full mb-8"></div>
               
               <p className="text-gray-700 text-lg mb-6">
-                Founded in 2015, SHC Partners emerged from a vision to bridge the gap between traditional corporate finance and the unique needs of India's evolving business landscape. What started as a small advisory team has grown into a comprehensive investment banking firm with expertise spanning multiple industries and service domains.
+                Founded in 2025, SHC Growth Partners emerged from a vision to bridge the gap between traditional corporate finance and the unique needs of India's evolving business landscape. What started as a small advisory team has grown into a comprehensive investment banking firm with expertise spanning multiple industries and service domains.
               </p>
               
               <p className="text-gray-700 text-lg mb-6">
@@ -104,7 +104,7 @@ const AboutPage = () => {
               
               <div className="bg-gradient-to-r from-primary/5 to-secondary/5 p-6 rounded-xl border border-primary/10 mb-8">
                 <p className="text-gray-800 text-lg italic">
-                  Today, SHC Partners stands as a testament to that founding vision, having facilitated over ₹2000 crores in transactions and guided numerous businesses through critical growth phases, market expansions, and strategic transformations.
+                  Today, SHC Growth Partners stands as a testament to that founding vision, having facilitated over ₹2000 crores in transactions and guided numerous businesses through critical growth phases, market expansions, and strategic transformations.
                 </p>
               </div>
               
@@ -139,7 +139,7 @@ const AboutPage = () => {
                   
                   <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
                     <p className="text-white/90 font-playfair text-lg">"Strategic financial solutions for forward-thinking businesses"</p>
-                    <p className="text-white/70 text-sm mt-1">— SHC Partners Foundation</p>
+                    <p className="text-white/70 text-sm mt-1">— SHC Growth Partners Foundation</p>
                   </div>
                 </div>
                 
@@ -175,7 +175,7 @@ const AboutPage = () => {
             <div className="h-1 w-24 bg-gradient-to-r from-primary to-secondary rounded-full mx-auto mb-10"></div>
             
             <p className="text-gray-700 max-w-3xl mx-auto text-lg">
-              At the heart of SHC Partners are our clearly defined mission and vision statements that guide every decision we make and service we provide.
+              At the heart of SHC Growth Partners are our clearly defined mission and vision statements that guide every decision we make and service we provide.
             </p>
           </motion.div>
           

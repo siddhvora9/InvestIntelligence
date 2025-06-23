@@ -41,7 +41,7 @@ const WhoWeAre = () => {
             </div>
             
             <p className="text-gray-700 mb-6">
-              SHC Partners is a boutique investment banking firm dedicated to helping businesses grow- financially, strategically, and sustainably. With our roots in India's dynamic market and a team of seasoned professionals, we guide clients through transformative financial decisions.
+              SHC Growth Partners is a boutique investment banking firm dedicated to helping businesses grow- financially, strategically, and sustainably. With our roots in India's dynamic market and a team of seasoned professionals, we guide clients through transformative financial decisions.
             </p>
             
             <p className="text-gray-700 mb-8">
@@ -51,7 +51,7 @@ const WhoWeAre = () => {
             <div className="mb-10">
               <h3 className="font-playfair font-semibold text-2xl text-primary mb-4">Our Philosophy</h3>
               <p className="text-gray-700">
-                At SHC Partners, we believe in growth with purpose. We are more than bankers—we are partners in your journey. Our mission is to deliver financial solutions that fuel sustainable growth for India's emerging businesses. Whether you're securing funding, acquiring a competitor, or exploring your valuation, we're here to ensure that every step forward is strategic and successful.
+                At SHC GrowthPartners, we believe in growth with purpose. We are more than bankers—we are partners in your journey. Our mission is to deliver financial solutions that fuel sustainable growth for India's emerging businesses. Whether you're securing funding, acquiring a competitor, or exploring your valuation, we're here to ensure that every step forward is strategic and successful.
               </p>
             </div>
             

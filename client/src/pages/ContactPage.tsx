@@ -71,8 +71,8 @@ const ContactPage = () => {
   return (
     <>
       <Helmet>
-        <title>Contact Us | SHC Partners</title>
-        <meta name="description" content="Get in touch with SHC Partners. Our team is ready to discuss your financial and strategic needs." />
+        <title>Contact Us | SHC Growth Partners</title>
+        <meta name="description" content="Get in touch with SHC Growth Partners. Our team is ready to discuss your financial and strategic needs." />
       </Helmet>
 
       {/* Hero Section */}
@@ -93,7 +93,7 @@ const ContactPage = () => {
           >
             <h1 className="text-white font-playfair font-bold text-4xl md:text-5xl mb-6 text-shadow">Contact Us</h1>
             <p className="text-white/90 text-lg md:text-xl">
-              We're here to help. Reach out to discuss how SHC Partners can support your business goals with tailored financial solutions.
+              We're here to help. Reach out to discuss how SHC Growth Partners can support your business goals with tailored financial solutions.
             </p>
           </motion.div>
         </div>
@@ -122,29 +122,13 @@ const ContactPage = () => {
                 <div className="flex items-start">
                   <div className="flex-shrink-0 mt-1">
                     <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
-                      <MapPin className="h-6 w-6" />
-                    </div>
-                  </div>
-                  <div className="ml-6">
-                    <h3 className="font-playfair font-semibold text-xl text-primary mb-2">Our Location</h3>
-                    <p className="text-gray-700">{COMPANY_INFO.address}</p>
-                    <p className="text-gray-700">{COMPANY_INFO.city}, {COMPANY_INFO.country}</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 mt-1">
-                    <div className="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center text-secondary">
                       <Mail className="h-6 w-6" />
                     </div>
                   </div>
                   <div className="ml-6">
                     <h3 className="font-playfair font-semibold text-xl text-primary mb-2">Email Us</h3>
-                    <p className="text-gray-700 mb-1">
-                      <span className="font-medium">General Inquiries:</span> {COMPANY_INFO.email.info}
-                    </p>
                     <p className="text-gray-700">
-                      <span className="font-medium">Deal-related:</span> {COMPANY_INFO.email.deals}
+                      <span className="font-medium">General Inquiries:</span> sudip@shcpartners.co.in
                     </p>
                   </div>
                 </div>
@@ -158,7 +142,7 @@ const ContactPage = () => {
                   <div className="ml-6">
                     <h3 className="font-playfair font-semibold text-xl text-primary mb-2">Call Us</h3>
                     <p className="text-gray-700 mb-1">
-                      <span className="font-medium">Office:</span> {COMPANY_INFO.phone}
+                      <span className="font-medium">Office:</span> 9158036103
                     </p>
                     <p className="text-gray-700">
                       <span className="font-medium">Mobile:</span> {COMPANY_INFO.mobile}
@@ -179,7 +163,7 @@ const ContactPage = () => {
                   <a href={COMPANY_INFO.social.facebook} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-secondary transition duration-300">
                     <Facebook className="h-5 w-5" />
                   </a>
-                  <a href={COMPANY_INFO.social.instagram} target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-secondary transition duration-300">
+                  <a href="https://www.instagram.com/shcgrowthpartners?igsh=MWJkNGZmbDhwa3p4dw==" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-primary flex items-center justify-center text-white hover:bg-secondary transition duration-300">
                     <Instagram className="h-5 w-5" />
                   </a>
                 </div>
@@ -308,25 +292,6 @@ const ContactPage = () => {
                 </form>
               </Form>
             </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Map Section */}
-      <section className="py-12 bg-gray-50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-4xl mx-auto">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3770.5087616403195!2d72.86391631490515!3d19.07004008709129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be7c87c253c34b1%3A0x3a772979c944c324!2sBandra%20Kurla%20Complex%2C%20Bandra%20East%2C%20Mumbai%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1596607923449!5m2!1sen!2sin" 
-              width="100%" 
-              height="450" 
-              style={{ border: 0 }} 
-              frameBorder="0"
-              loading="lazy"
-              allowFullScreen
-              title="SHC Partners Office Location"
-              className="rounded-lg shadow-lg"
-            ></iframe>
           </div>
         </div>
       </section>

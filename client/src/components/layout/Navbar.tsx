@@ -6,12 +6,12 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const navItems = [
-  { name: 'Home', path: '/', hash: '#' },
-  { name: 'Services', path: '/services', hash: '#services' },
-  { name: 'About', path: '/about', hash: '#about' },
-  { name: 'Transactions', path: '/transactions', hash: '#transactions' },
-  { name: 'Deal Room', path: '/deal-room', hash: '#deal-room' },
-  { name: 'Post Deal', path: '/post-deal', hash: '#post-deal', isButton: true }
+  { name: 'Home', path: '/' },
+  { name: 'Services', path: '/services' },
+  { name: 'About', path: '/about' },
+  { name: 'Partners', path: '/team' },
+  { name: 'Transactions', path: '/transactions' },
+  { name: 'Contact', path: '/contact', isButton: true }
 ];
 
 const Navbar = () => {
@@ -37,16 +37,18 @@ const Navbar = () => {
     setIsOpen(false);
   };
 
-  const isHomePage = location === '/';
-
   return (
     <header className={`sticky top-0 z-50 w-full ${scrolled ? 'bg-white shadow-sm' : 'bg-white'} transition-all duration-300`}>
-      <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-3">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <span className="font-playfair font-bold text-xl md:text-2xl tracking-tight">
-                <span className="text-[#793a99]">SHC</span> <span className="text-[#b62c7f]">Partners</span>
+      <nav className="container mx-auto px-2">
+        <div className="flex justify-between items-center h-24 overflow-visible">
+          <div className="flex items-center -mt-2">
+            <Link href="/">
+              <span className="flex items-center">
+                <img 
+                  src="/assets/SHC_Growth_Partners_Logo-removebg-preview.png" 
+                  alt="SHC Growth Partners" 
+                  className="h-48 md:h-56 w-auto"
+                />
               </span>
             </Link>
           </div>
@@ -56,15 +58,15 @@ const Navbar = () => {
               item.isButton ? (
                 <Button 
                   key={item.name} 
-                  asChild 
-                  className="bg-[#0442a0] hover:bg-[#0442a0]/90 text-white rounded-sm ml-2"
+                  className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 text-white rounded-sm ml-2"
+                  onClick={() => window.location.href = item.path}
                 >
-                  <Link href={item.path}>{item.name}</Link>
+                  {item.name}
                 </Button>
               ) : (
                 <Link 
                   key={item.name} 
-                  href={isHomePage ? item.hash : item.path}
+                  href={item.path}
                   className="text-gray-700 hover:text-[#793a99] px-3 py-2 font-montserrat text-sm transition duration-300"
                 >
                   {item.name}
@@ -96,15 +98,17 @@ const Navbar = () => {
                 <div key={item.name} className="border-b border-gray-100 pb-2 last:border-0">
                   {item.isButton ? (
                     <Button 
-                      asChild 
-                      className="bg-[#0442a0] hover:bg-[#0442a0]/90 text-white w-full rounded-sm"
-                      onClick={closeMenu}
+                      className="bg-[#ee3f37] hover:bg-[#ee3f37]/90 text-white w-full rounded-sm"
+                      onClick={() => {
+                        closeMenu();
+                        window.location.href = item.path;
+                      }}
                     >
-                      <Link href={item.path}>{item.name}</Link>
+                      {item.name}
                     </Button>
                   ) : (
                     <Link 
-                      href={isHomePage ? item.hash : item.path}
+                      href={item.path}
                       className="block py-2 text-gray-700 hover:text-[#793a99] font-medium text-sm"
                       onClick={closeMenu}
                     >

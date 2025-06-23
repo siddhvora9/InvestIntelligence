@@ -4,22 +4,22 @@ import { fadeIn, staggerContainer } from '@/lib/animations';
 
 const clientTypes = [
   {
-    icon: <Zap className="h-10 w-10 text-secondary" />,
+    icon: <Zap className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110" />,
     title: 'Early-Stage Startups',
     description: 'Guiding innovative ventures from concept to market leadership'
   },
   {
-    icon: <Building className="h-10 w-10 text-secondary" />,
+    icon: <Building className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110" />,
     title: 'Family-Run Businesses',
     description: 'Balancing tradition with growth strategies for legacy enterprises'
   },
   {
-    icon: <DollarSign className="h-10 w-10 text-secondary" />,
+    icon: <DollarSign className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110" />,
     title: 'PE-backed Companies',
     description: 'Maximizing value and preparing for next-stage growth or exit'
   },
   {
-    icon: <BarChart2 className="h-10 w-10 text-secondary" />,
+    icon: <BarChart2 className="h-10 w-10 text-white transition-transform duration-300 group-hover:scale-110" />,
     title: 'Sector-Focused Mid-Cap Firms',
     description: 'Strategic solutions for established domain leaders'
   }
@@ -52,13 +52,16 @@ const ClientTypes = () => {
             <motion.div
               key={index}
               variants={fadeIn('up', 'spring', index * 0.1, 0.6)}
-              className="bg-gray-50 rounded-lg p-8 text-center hover:shadow-lg transition duration-300"
+              className="group bg-gradient-to-br from-gray-50 to-white rounded-lg p-8 text-center hover:shadow-lg transition-all duration-300 hover:-translate-y-1 relative overflow-hidden"
             >
-              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6">
-                {client.icon}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative z-10">
+                <div className="w-20 h-20 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mx-auto mb-6 group-hover:shadow-lg transition-all duration-300 group-hover:scale-[1.02]">
+                  {client.icon}
+                </div>
+                <h3 className="font-playfair font-semibold text-xl text-primary mb-3 group-hover:text-secondary transition-colors duration-300">{client.title}</h3>
+                <p className="text-gray-600 group-hover:text-gray-700 transition-colors duration-300">{client.description}</p>
               </div>
-              <h3 className="font-playfair font-semibold text-xl text-primary mb-3">{client.title}</h3>
-              <p className="text-gray-600">{client.description}</p>
             </motion.div>
           ))}
         </motion.div>

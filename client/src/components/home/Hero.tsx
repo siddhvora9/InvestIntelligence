@@ -1,21 +1,41 @@
 import { Link } from 'wouter';
 import { Button } from '@/components/ui/button';
 import { motion } from 'framer-motion';
-import { Play, ChevronRight } from 'lucide-react';
+import { Play, ChevronRight, Briefcase, TrendingUp, Handshake, Building2 } from 'lucide-react';
 import financeIllustration from '@/assets/finance-illustration.svg';
 import abstractPattern from '@/assets/abstract-pattern.svg';
 
 const Hero = () => {
   // Transaction stats similar to fundgini.com
   const stats = [
-    { title: 'Debt Finance', count: 172, icon: '💼', color: 'from-primary/20 to-primary/30' },
-    { title: 'Equity Fundraise', count: 302, icon: '📈', color: 'from-secondary/20 to-secondary/30' },
-    { title: 'Buy (M&A/JV)', count: 181, icon: '🤝', color: 'from-primary/20 to-secondary/30' },
-    { title: 'Sell', count: 194, icon: '🏢', color: 'from-primary/20 to-secondary/30' },
+    { 
+      title: 'Debt Finance', 
+      count: 172, 
+      icon: <Briefcase className="w-8 h-8 text-white" />, 
+      color: 'from-primary/20 to-primary/30' 
+    },
+    { 
+      title: 'Equity Fundraise', 
+      count: 302, 
+      icon: <TrendingUp className="w-8 h-8 text-white" />, 
+      color: 'from-secondary/20 to-secondary/30' 
+    },
+    { 
+      title: 'Buy (M&A/JV)', 
+      count: 181, 
+      icon: <Handshake className="w-8 h-8 text-white" />, 
+      color: 'from-primary/20 to-secondary/30' 
+    },
+    { 
+      title: 'Sell', 
+      count: 194, 
+      icon: <Building2 className="w-8 h-8 text-white" />, 
+      color: 'from-primary/20 to-secondary/30' 
+    }
   ];
 
   return (
-    <section className="relative bg-[#081f36] overflow-hidden">
+    <section className="relative bg-[#081f36] overflow-hidden min-h-screen flex items-center">
       {/* Dark background pattern */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <img src={abstractPattern} alt="Background Pattern" className="w-full h-full object-cover opacity-30" />
@@ -30,16 +50,17 @@ const Hero = () => {
             transition={{ duration: 0.6 }}
           >
             <div className="inline-block px-4 py-1 bg-white/10 backdrop-blur-sm rounded-full mb-5">
-              <p className="text-white/90 text-sm font-medium tracking-wide">Financial Excellence Since 2005</p>
+              <p className="text-white/90 text-sm font-medium tracking-wide">Financial Excellence Since 2025</p>
             </div>
             
             <h1 className="text-white font-playfair font-bold text-3xl md:text-5xl lg:text-6xl leading-tight mb-6">
-              Welcome to <span className="text-secondary">SHC Partners</span>
+              <span className="text-[#793a99]">SHC</span> <span className="text-[#b62c7f]">Growth</span> <span className="text-[#ee3f37]">Partners</span>
             </h1>
             <p className="text-white/90 font-montserrat text-lg md:text-xl mb-8 max-w-xl">
               Global Ecosystem for Equity Funding | Debt Finance | Mergers and Acquisitions
             </p>
             
+            {/* Commented out buttons for future use
             <div className="flex flex-wrap items-center gap-4 mb-10">
               <Button
                 className="bg-secondary hover:bg-secondary/90 text-white flex items-center gap-2 rounded-full shadow-lg shadow-secondary/20 py-6 px-8 h-auto"
@@ -51,7 +72,7 @@ const Hero = () => {
               <Button 
                 asChild 
                 variant="outline" 
-                className="border-white/30 text-white hover:bg-white/10 rounded-full backdrop-blur-sm py-6 px-8 h-auto group"
+                className="bg-transparent border-white/30 text-white hover:bg-white/10 rounded-full backdrop-blur-sm py-6 px-8 h-auto group"
               >
                 <Link href="/login" className="flex items-center gap-2">
                   <span className="font-medium text-base">Login to Portal</span>
@@ -59,6 +80,7 @@ const Hero = () => {
                 </Link>
               </Button>
             </div>
+            */}
           </motion.div>
           
           <motion.div
@@ -70,7 +92,7 @@ const Hero = () => {
             <div className="bg-gradient-to-br from-primary/20 to-secondary/20 backdrop-blur-sm p-6 rounded-xl border border-white/10 shadow-xl shadow-black/10">
               <img 
                 src={financeIllustration} 
-                alt="SHC Partners Financial Services" 
+                alt="SHC Growth Partners Financial Services" 
                 className="w-full h-auto rounded"
               />
               <div className="mt-4 text-center">
@@ -90,9 +112,13 @@ const Hero = () => {
           {stats.map((stat, index) => (
             <div 
               key={index} 
-              className={`bg-gradient-to-br ${stat.color} p-5 rounded-xl text-center backdrop-blur-sm hover:shadow-lg transition duration-300 border border-white/5 shadow shadow-black/5`}
+              className={`bg-gradient-to-br ${stat.color} p-6 rounded-xl text-center backdrop-blur-sm hover:shadow-lg transition duration-300 border border-white/5 shadow shadow-black/5 group`}
             >
-              <div className="text-4xl mb-3">{stat.icon}</div>
+              <div className="mb-3 flex justify-center items-center">
+                <div className="p-3 rounded-full bg-white/10 group-hover:bg-white/20 transition-colors duration-300">
+                  {stat.icon}
+                </div>
+              </div>
               <p className="text-white font-montserrat text-sm mb-1 opacity-90">{stat.title}</p>
               <p className="text-white font-playfair font-bold text-2xl">{stat.count} <span className="text-sm opacity-80">Deals</span></p>
             </div>
