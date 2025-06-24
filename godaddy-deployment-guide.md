@@ -32,7 +32,7 @@ Create `.env` file in your project root:
 ```env
 # Database Configuration
 # For MongoDB Atlas
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/database_name?retryWrites=true&w=majority
+MONGODB_URI=your_mongodb_connection_string_here
 
 # For PostgreSQL (Neon/Supabase)
 DATABASE_URL=postgresql://username:password@host:port/database_name
@@ -43,9 +43,6 @@ NODE_ENV=production
 
 # CORS Configuration
 CORS_ORIGIN=https://yourdomain.com
-
-# JWT Secret
-JWT_SECRET=your-super-secret-jwt-key-here
 
 # Session Secret
 SESSION_SECRET=your-super-secret-session-key-here

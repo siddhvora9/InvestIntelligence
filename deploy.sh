@@ -138,25 +138,26 @@ npm install
 print_status "Installing server dependencies..."
 cd server && npm install && cd ..
 
-# Create environment file
-print_status "Creating environment configuration..."
-cat > .env << EOF
-# MongoDB Atlas Connection String
-# Replace with your actual MongoDB Atlas connection string
-MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/investintelligence?retryWrites=true&w=majority
+# Environment Variables
+echo "Setting up environment variables..."
 
+# Create .env file for the server
+cat > server/.env << EOF
 # Server Configuration
-PORT=5000
+PORT=3000
 NODE_ENV=production
 
-# CORS Configuration
-CORS_ORIGIN=https://your-domain.com
+# Database Configuration
+MONGODB_URI=your_mongodb_connection_string_here
 
-# JWT Secret (for future use)
-JWT_SECRET=your-secret-key-change-this-in-production
+# CORS Configuration
+CORS_ORIGIN=https://yourdomain.com
+
+# Session Secret
+SESSION_SECRET=your-session-secret-change-this-in-production
 EOF
 
-print_warning "Please edit .env file with your actual MongoDB Atlas connection string and domain"
+echo "Environment variables configured."
 
 # Build frontend
 print_status "Building frontend..."
@@ -164,7 +165,7 @@ npm run build
 
 # Create PM2 ecosystem file
 print_status "Creating PM2 configuration..."
-cat > ecosystem.config.js << EOF
+cat > ecosystem.config.cjs << EOF
 module.exports = {
   apps: [{
     name: 'investintelligence',
@@ -184,7 +185,7 @@ EOF
 
 # Start application with PM2
 print_status "Starting application with PM2..."
-pm2 start ecosystem.config.js
+pm2 start ecosystem.config.cjs
 pm2 save
 pm2 startup
 
