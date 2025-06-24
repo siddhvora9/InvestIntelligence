@@ -295,7 +295,7 @@ const TransactionsPage = () => {
               variants={fadeIn('up', 'spring', 0.1, 0.6)}
               className="bg-white p-8 rounded-lg shadow-lg text-center"
             >
-              <h3 className="text-secondary font-bold text-4xl mb-2">₹2000+</h3>
+              <h3 className="text-secondary font-bold text-4xl mb-2">₹500+</h3>
               <p className="text-primary font-playfair font-semibold text-xl mb-2">Crores</p>
               <p className="text-gray-600">Total transaction value facilitated</p>
             </motion.div>
@@ -322,7 +322,7 @@ const TransactionsPage = () => {
               variants={fadeIn('up', 'spring', 0.4, 0.6)}
               className="bg-white p-8 rounded-lg shadow-lg text-center"
             >
-              <h3 className="text-secondary font-bold text-4xl mb-2">92%</h3>
+              <h3 className="text-secondary font-bold text-4xl mb-2">More than 90%</h3>
               <p className="text-primary font-playfair font-semibold text-xl mb-2">Retention</p>
               <p className="text-gray-600">Client retention rate</p>
             </motion.div>

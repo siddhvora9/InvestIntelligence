@@ -10,25 +10,25 @@ const Hero = () => {
   const stats = [
     { 
       title: 'Debt Finance', 
-      count: 172, 
+      count: 20, 
       icon: <Briefcase className="w-8 h-8 text-white" />, 
       color: 'from-primary/20 to-primary/30' 
     },
     { 
       title: 'Equity Fundraise', 
-      count: 302, 
+      count: 15, 
       icon: <TrendingUp className="w-8 h-8 text-white" />, 
       color: 'from-secondary/20 to-secondary/30' 
     },
     { 
       title: 'Buy (M&A/JV)', 
-      count: 181, 
+      count: 20, 
       icon: <Handshake className="w-8 h-8 text-white" />, 
       color: 'from-primary/20 to-secondary/30' 
     },
     { 
       title: 'Sell', 
-      count: 194, 
+      count: 10, 
       icon: <Building2 className="w-8 h-8 text-white" />, 
       color: 'from-primary/20 to-secondary/30' 
     }
